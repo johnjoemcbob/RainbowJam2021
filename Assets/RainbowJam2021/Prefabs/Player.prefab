@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3160943961075093908}
   m_Layer: 0
   m_Name: CameraTarget
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,12 +73,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ce22ba7df290b43a5ee3f2f76da874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Min: -5
-  Max: -20
+  DistMin: -5
+  DistMax: -20
   SpeedMin: 0
   SpeedMax: 100
+  FOVMin: 60
+  FOVMax: 100
+  FOVSpeedMin: 15
+  FOVSpeedMax: 30
+  FOVLerp: 5
   YDampner: 0.1
   Vehicle: {fileID: 3160943961181606418}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &3160943961181606416
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +99,7 @@ GameObject:
   - component: {fileID: 3160943961181606428}
   m_Layer: 0
   m_Name: Vehicle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,9 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be846d0d80d77c4797349afe6b46afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrustForce: 600
+  ThrustForce: 800
   TurnForce: 300
   EngineForce: 250
+  NoVerticalInput: 1
   Engines:
   - {fileID: 3160943961957422396}
   - {fileID: 3160943962443678260}
@@ -173,7 +180,7 @@ GameObject:
   - component: {fileID: 3160943961561207241}
   m_Layer: 0
   m_Name: Parts
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +375,7 @@ GameObject:
   - component: {fileID: 3160943962039364913}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,7 +387,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3160943962039364918}
-  m_LocalRotation: {x: -0, y: -0.44907495, z: -0, w: 0.8934941}
+  m_LocalRotation: {x: 0, y: -0.44907734, z: 0, w: 0.89349294}
   m_LocalPosition: {x: 88.18318, y: 47.6, z: -87.6225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -676,7 +683,7 @@ GameObject:
   - component: {fileID: 3160943962600100435}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,5 +888,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LerpSpeed: 5
+  VelocityMin: 25
+  VelocityMax: 30
+  ShakeMin: 0
+  ShakeMax: 0.1
   CameraTarget: {fileID: 3160943961075093909}
   LookAt: {fileID: 3160943961181606419}

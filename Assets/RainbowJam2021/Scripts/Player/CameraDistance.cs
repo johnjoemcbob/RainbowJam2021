@@ -6,14 +6,24 @@ public class CameraDistance : MonoBehaviour
 {
 	#region Variables - Inspector
 	[Header( "Variables" )]
-    public float Min = 5;
-    public float Max = 20;
+    public float DistMin = -5;
+    public float DistMax = -20;
     public float SpeedMin = 0;
     public float SpeedMax = 100;
+    public float FOVMin = 70;
+    public float FOVMax = 90;
+    public float FOVSpeedMin = 0;
+    public float FOVSpeedMax = 100;
+    public float FOVLerp = 5;
     public float YDampner = 1;
 
     [Header( "References" )]
     public HoverVehicle Vehicle;
+    #endregion
+
+    #region Variables - Public
+    [HideInInspector]
+    public Vector3 Offset;
 	#endregion
 
 	#region Variables - Private
@@ -28,10 +38,19 @@ public class CameraDistance : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log( Vehicle.GetVelocity().y );
+        // Lerp offset back to zero (anti wall poke through)
+        Offset = Vector3.Lerp( Offset, Vector3.zero, Time.deltaTime * 5 );
+
+        // Look up/down when travelling in that direction for a better view
         float y = InitialPos.y - Vehicle.GetVelocity().y * YDampner;
-        float z = Vehicle.GetSpeed().RemapClamped( SpeedMin, SpeedMax, Min, Max );
-        transform.localPosition = new Vector3( InitialPos.x, y, z );
+
+        // Lerp camera distance by speed
+        float z = Vehicle.GetSpeed().RemapClamped( SpeedMin, SpeedMax, DistMin, DistMax );
+        transform.localPosition = new Vector3( InitialPos.x, y, z ) + Offset;
+
+        // Lerp camera fov by speed
+        float fov = Vehicle.GetSpeed().RemapClamped( FOVSpeedMin, FOVSpeedMax, FOVMin, FOVMax );
+        Camera.main.fieldOfView = Mathf.Lerp( Camera.main.fieldOfView, fov, Time.deltaTime * FOVLerp );
     }
 	#endregion
 }

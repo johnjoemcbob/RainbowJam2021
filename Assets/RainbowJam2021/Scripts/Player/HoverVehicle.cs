@@ -9,6 +9,7 @@ public class HoverVehicle : MonoBehaviour
     public float ThrustForce = 400;
     public float TurnForce = 300;
     public float EngineForce = 250;
+    public bool NoVerticalInput = false;
 
     [Header( "References" )]
     public List<GameObject> Engines;
@@ -27,9 +28,26 @@ public class HoverVehicle : MonoBehaviour
         rb.centerOfMass = CenterMass.transform.localPosition;
     }
 
-    void FixedUpdate()
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.R ) )
+		{
+            transform.localPosition = Vector3.zero;
+            transform.localEulerAngles = Vector3.zero;
+
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+		}
+	}
+
+	void FixedUpdate()
     {
-        rb.AddForceAtPosition( Time.deltaTime * transform.TransformDirection( Vector3.forward ) * Input.GetAxis( "Vertical" ) * ThrustForce, Propulsion.transform.position );
+        Vector3 forward = transform.TransformDirection( Vector3.forward );
+            if ( NoVerticalInput )
+		    {
+                forward.y = 0;
+		    }
+        rb.AddForceAtPosition( Time.deltaTime * forward * Input.GetAxis( "Vertical" ) * ThrustForce, Propulsion.transform.position );
         rb.AddTorque( Time.deltaTime * transform.TransformDirection( Vector3.up ) * Input.GetAxis( "Horizontal" ) * TurnForce );
         foreach ( GameObject engine in Engines )
 		{
