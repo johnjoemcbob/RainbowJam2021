@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3160943961181606419}
   - component: {fileID: 3160943961181606418}
   - component: {fileID: 3160943961181606429}
-  - component: {fileID: 3160943961181606428}
+  - component: {fileID: 2122613697665807396}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Player
@@ -161,14 +161,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!81 &3160943961181606428
-AudioListener:
+--- !u!114 &2122613697665807396
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3160943961181606416}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &3160943961561207246
 GameObject:
   m_ObjectHideFlags: 0
