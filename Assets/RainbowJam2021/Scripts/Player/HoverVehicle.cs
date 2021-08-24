@@ -7,18 +7,27 @@ public class HoverVehicle : MonoBehaviour
     #region Variables - Inspector
     [Header( "Variables" )]
     public float ThrustForce = 400;
+    public float TurboForce = 800;
     public float TurnForce = 300;
     public float EngineForce = 250;
+    public float DriftBuildMultiplier = 1;
     public bool NoVerticalInput = false;
 
     [Header( "References" )]
     public List<GameObject> Engines;
     public GameObject Propulsion;
     public GameObject CenterMass;
-	#endregion
+    #endregion
 
-	#region Variables - Private
-	private Rigidbody rb;
+    #region Variables - Public
+    [HideInInspector]
+    public float DriftTurbo = 0;
+    #endregion
+
+    #region Variables - Private
+    private Rigidbody rb;
+
+    private bool InputTryBoost = false;
     #endregion
 
     #region MonoBehaviour
@@ -38,10 +47,13 @@ public class HoverVehicle : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 		}
-	}
+
+        InputTryBoost = Input.GetKey( KeyCode.Space ) || Input.GetButton( "Jump" );
+    }
 
 	void FixedUpdate()
     {
+        // Directional Input
         Vector3 forward = transform.TransformDirection( Vector3.forward );
             if ( NoVerticalInput )
 		    {
@@ -57,11 +69,46 @@ public class HoverVehicle : MonoBehaviour
                 rb.AddForceAtPosition( Time.deltaTime * transform.TransformDirection( Vector3.up ) * Mathf.Pow( 3f - hit.distance, 2 ) / 2f * EngineForce, engine.transform.position );
 			}
 		}
+
+        // ???
         rb.AddForce( -Time.deltaTime * transform.TransformVector( Vector3.right ) * transform.InverseTransformVector( rb.velocity ).x * 5f );
+
+        // Boost Input
+        if ( DriftTurbo > 0 )
+        {
+            if ( InputTryBoost )
+            {
+                rb.AddForceAtPosition( -rb.velocity, Propulsion.transform.position );
+                rb.AddForceAtPosition( Time.deltaTime * forward * TurboForce, Propulsion.transform.position );
+                float TurboArrestAngularMultiplier = 1;
+                rb.angularVelocity = Vector3.Lerp( rb.angularVelocity, Vector3.zero, Time.deltaTime * TurboArrestAngularMultiplier );
+                DriftTurbo -= 0.1f;
+            }
+        }
+        else
+		{
+            DriftTurbo = 0;
+		}
+
+        // Drifting
+        // Turning and slowing down a lot
+        // Builds up DriftTurbo
+        if ( rb.velocity.magnitude > 15 && rb.angularVelocity.magnitude > 1 )
+        {
+            DriftTurbo += Time.deltaTime * DriftBuildMultiplier;
+            DriftTurbo = Mathf.Clamp( DriftTurbo, 0, 1 );
+        }
+    }
+
+	private void OnCollisionEnter( Collision collision )
+	{
+        // Screenshake
+        FindObjectOfType<CameraFollow>().Shake( collision.relativeVelocity.magnitude );
     }
 	#endregion
 
-    public float GetSpeed()
+	#region Getters
+	public float GetSpeed()
 	{
         return rb.velocity.magnitude;
 	}
@@ -70,4 +117,5 @@ public class HoverVehicle : MonoBehaviour
 	{
         return rb.velocity;
 	}
+	#endregion
 }

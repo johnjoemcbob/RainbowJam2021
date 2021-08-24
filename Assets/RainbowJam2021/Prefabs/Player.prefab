@@ -77,6 +77,10 @@ MonoBehaviour:
   DistMax: -20
   SpeedMin: 0
   SpeedMax: 100
+  YDistMin: 0
+  YDistMax: -2
+  YSpeedMin: 25
+  YSpeedMax: 30
   FOVMin: 60
   FOVMax: 100
   FOVSpeedMin: 15
@@ -134,8 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThrustForce: 800
+  TurboForce: 6400
   TurnForce: 300
   EngineForce: 250
+  DriftBuildMultiplier: 1
   NoVerticalInput: 1
   Engines:
   - {fileID: 3160943961957422396}
@@ -145,6 +151,7 @@ MonoBehaviour:
   - {fileID: 3160943962546542760}
   Propulsion: {fileID: 3160943961047342573}
   CenterMass: {fileID: 3160943962269512277}
+  DriftTurbo: 0
 --- !u!54 &3160943961181606429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -898,5 +905,7 @@ MonoBehaviour:
   VelocityMax: 30
   ShakeMin: 0
   ShakeMax: 0.1
+  ShakeExternal: 4
+  ShakeDropoff: 4
   CameraTarget: {fileID: 3160943961075093909}
   LookAt: {fileID: 3160943961181606419}

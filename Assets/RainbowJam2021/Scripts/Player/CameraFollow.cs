@@ -9,8 +9,10 @@ public class CameraFollow : MonoBehaviour
     public float LerpSpeed = 5;
     public float VelocityMin = 15;
     public float VelocityMax = 30;
-    public float ShakeMin = 5;
-    public float ShakeMax = 50;
+    public float ShakeMin = 0;
+    public float ShakeMax = 0.3f;
+    public float ShakeExternal = 2;
+    public float ShakeDropoff = 100;
 
     [Header( "References" )]
     public Transform CameraTarget;
@@ -19,12 +21,14 @@ public class CameraFollow : MonoBehaviour
 
 	#region Variables - Private
 	Rigidbody rb;
-	#endregion
 
-	#region MonoBehaviour
-	void Start()
+    private float CurrentShake = 0;
+    #endregion
+
+    #region MonoBehaviour
+    void Start()
     {
-        rb = GameObject.FindGameObjectWithTag( "Player" ).GetComponentInChildren<Rigidbody>();
+        rb = FindObjectOfType<HoverVehicle>().GetComponentInChildren<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -52,7 +56,23 @@ public class CameraFollow : MonoBehaviour
         transform.LookAt( LookAt );
 
         // Camera screenshake
-        transform.localPosition += Random.insideUnitSphere * rb.velocity.magnitude.RemapClamped( VelocityMin, VelocityMax, ShakeMin, ShakeMax );
+        transform.localPosition += Random.insideUnitSphere * rb.velocity.magnitude.RemapClamped( VelocityMin, VelocityMax, ShakeMin, ShakeMax ) * CurrentShake;
+        ShakeTime += Time.deltaTime * ShakeDropoff;
+        CurrentShake = Mathf.Lerp( ShakeStart, 0, ShakeTime );
     }
     #endregion
+
+    float ShakeStart = 0;
+    float ShakeTime = 0;
+    public void Shake( float shake )
+	{
+        float temp = shake * ShakeExternal;
+        if ( temp > CurrentShake )
+        {
+            ShakeStart = temp;
+            ShakeTime = 0;
+            CurrentShake = ShakeStart;
+            Debug.Log( CurrentShake );
+        }
+    }
 }

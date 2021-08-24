@@ -12,7 +12,7 @@ public class VelocityCounter : MonoBehaviour
     {
         VelocityText = GetComponent<Text>();
 
-        rb = GameObject.FindGameObjectWithTag( "Player" ).GetComponentInChildren<Rigidbody>();
+        rb = FindObjectOfType<HoverVehicle>().GetComponentInChildren<Rigidbody>();
     }
 
     void Update()
