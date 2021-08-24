@@ -50,30 +50,32 @@ public class HoverVehicle : MonoBehaviour
         // Debug reset
 		if ( Input.GetKeyDown( KeyCode.R ) )
 		{
-            transform.localPosition = Vector3.zero;
-            transform.localEulerAngles = Vector3.zero;
-
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+            Respawn();
 		}
 
         // Debug visualise engines
-        if ( Input.GetKeyDown( KeyCode.F1 ) )
+        if ( Input.GetKeyDown( KeyCode.Alpha1 ) )
 		{
             ToggleEngineVisualise();
 		}
 
         // Debug visualise stabilisers
-        if ( Input.GetKeyDown( KeyCode.F2 ) )
+        if ( Input.GetKeyDown( KeyCode.Alpha2 ) )
         {
             ToggleStabiliserVisualise();
         }
 
         // Debug stabilisers
-        if ( Input.GetKeyDown( KeyCode.F3 ) )
+        if ( Input.GetKeyDown( KeyCode.Alpha3 ) )
         {
             ToggleStabilisers();
         }
+
+        // Debug respawn
+        if ( transform.localPosition.y < -60 )
+		{
+            Respawn();
+		}
 
         // Input
         InputTryBoost = Input.GetKey( KeyCode.Space ) || Input.GetButton( "Jump" );
@@ -187,4 +189,13 @@ public class HoverVehicle : MonoBehaviour
         }
     }
     #endregion
+
+    void Respawn()
+	{
+        transform.localPosition = Vector3.zero;
+        transform.localEulerAngles = Vector3.zero;
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
 }

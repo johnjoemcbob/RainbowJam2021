@@ -780,7 +780,7 @@ MonoBehaviour:
   ThrustForce: 19200
   TurboForce: 153600
   TurnForce: 960
-  EngineForce: 2000
+  EngineForce: 4000
   DriftBuildVelocity: 15
   DriftBuildAngular: 0.6
   DriftBuildMultiplierSpeed: 5

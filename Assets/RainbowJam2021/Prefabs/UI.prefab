@@ -80,7 +80,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: F1 to toggle engine visualisers (orange)
+  m_Text: 1 to toggle engine visualisers (orange)
 --- !u!114 &9109112058563709778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: F2 to toggle stabiliser visualisers (red)
+  m_Text: 2 to toggle stabiliser visualisers (red)
 --- !u!114 &5349729325089511772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,7 +716,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: F3 to toggle stabilisers functionality
+  m_Text: 3 to toggle stabilisers functionality
 --- !u!114 &8137996555584127407
 MonoBehaviour:
   m_ObjectHideFlags: 0
