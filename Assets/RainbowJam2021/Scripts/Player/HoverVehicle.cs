@@ -16,6 +16,7 @@ public class HoverVehicle : MonoBehaviour
     [Header( "References" )]
     public List<GameObject> Engines;
     public GameObject Propulsion;
+    public GameObject BoostPropulsion;
     public GameObject CenterMass;
     #endregion
 
@@ -35,10 +36,14 @@ public class HoverVehicle : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody>();
         rb.centerOfMass = CenterMass.transform.localPosition;
+
+        ToggleEngineVisualise();
+        ToggleStabiliserVisualise();
     }
 
 	private void Update()
 	{
+        // Debug reset
 		if ( Input.GetKeyDown( KeyCode.R ) )
 		{
             transform.localPosition = Vector3.zero;
@@ -48,6 +53,25 @@ public class HoverVehicle : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
 		}
 
+        // Debug visualise engines
+        if ( Input.GetKeyDown( KeyCode.F1 ) )
+		{
+            ToggleEngineVisualise();
+		}
+
+        // Debug visualise stabilisers
+        if ( Input.GetKeyDown( KeyCode.F2 ) )
+        {
+            ToggleStabiliserVisualise();
+        }
+
+        // Debug stabilisers
+        if ( Input.GetKeyDown( KeyCode.F3 ) )
+        {
+            ToggleStabilisers();
+        }
+
+        // Input
         InputTryBoost = Input.GetKey( KeyCode.Space ) || Input.GetButton( "Jump" );
     }
 
@@ -67,7 +91,11 @@ public class HoverVehicle : MonoBehaviour
             if ( Physics.Raycast( engine.transform.position, transform.TransformDirection( Vector3.down ), out hit, 3f ) )
 			{
                 rb.AddForceAtPosition( Time.deltaTime * transform.TransformDirection( Vector3.up ) * Mathf.Pow( 3f - hit.distance, 2 ) / 2f * EngineForce, engine.transform.position );
-			}
+
+                engine.transform.localScale = Vector3.one;
+            }
+
+            engine.transform.localScale = Vector3.Lerp( engine.transform.localScale, Vector3.one * 0.1f, Time.deltaTime * 5 );
 		}
 
         // ???
@@ -81,7 +109,7 @@ public class HoverVehicle : MonoBehaviour
                 Vector3 vel = rb.velocity;
                 vel.y = 0;
                 rb.AddForceAtPosition( -vel, Propulsion.transform.position );
-                rb.AddForceAtPosition( Time.deltaTime * forward * TurboForce, Propulsion.transform.position );
+                rb.AddForceAtPosition( Time.deltaTime * forward * TurboForce, BoostPropulsion.transform.position );
                 float TurboArrestAngularMultiplier = 1;
                 rb.angularVelocity = Vector3.Lerp( rb.angularVelocity, Vector3.zero, Time.deltaTime * TurboArrestAngularMultiplier );
                 DriftTurbo -= 0.1f;
@@ -119,5 +147,32 @@ public class HoverVehicle : MonoBehaviour
 	{
         return rb.velocity;
 	}
-	#endregion
+    #endregion
+
+    #region Debug
+    void ToggleEngineVisualise()
+	{
+		foreach ( GameObject engine in Engines )
+		{
+            engine.GetComponent<MeshRenderer>().enabled = !engine.GetComponent<MeshRenderer>().enabled;
+        }
+	}
+
+    void ToggleStabiliserVisualise()
+    {
+        foreach ( var stabiliser in FindObjectsOfType<VehicleUpright>( true ) )
+        {
+            stabiliser.GetComponent<MeshRenderer>().enabled = !stabiliser.GetComponent<MeshRenderer>().enabled;
+        }
+    }
+
+    void ToggleStabilisers()
+    {
+        foreach ( var stabiliser in FindObjectsOfType<VehicleUpright>( true ) )
+        {
+            stabiliser.enabled = !stabiliser.enabled;
+            stabiliser.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
+    #endregion
 }
