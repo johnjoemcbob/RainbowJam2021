@@ -23,8 +23,6 @@ public class DriftTurboCounter : MonoBehaviour
 
     void Update()
     {
-        Debug.Log( veh.DriftTurbo );
-        Debug.Log( veh.DriftTurbo * 11 + 0.1f );
         int ind = Mathf.FloorToInt( veh.DriftTurbo * ( Values.Length + 0 ) );
         if ( ind >= 0 && ind < Values.Length )
         {

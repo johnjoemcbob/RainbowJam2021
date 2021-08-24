@@ -78,7 +78,9 @@ public class HoverVehicle : MonoBehaviour
         {
             if ( InputTryBoost )
             {
-                rb.AddForceAtPosition( -rb.velocity, Propulsion.transform.position );
+                Vector3 vel = rb.velocity;
+                vel.y = 0;
+                rb.AddForceAtPosition( -vel, Propulsion.transform.position );
                 rb.AddForceAtPosition( Time.deltaTime * forward * TurboForce, Propulsion.transform.position );
                 float TurboArrestAngularMultiplier = 1;
                 rb.angularVelocity = Vector3.Lerp( rb.angularVelocity, Vector3.zero, Time.deltaTime * TurboArrestAngularMultiplier );

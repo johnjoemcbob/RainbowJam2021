@@ -72,7 +72,6 @@ public class CameraFollow : MonoBehaviour
             ShakeStart = temp;
             ShakeTime = 0;
             CurrentShake = ShakeStart;
-            Debug.Log( CurrentShake );
         }
     }
 }
