@@ -10,7 +10,10 @@ public class HoverVehicle : MonoBehaviour
     public float TurboForce = 800;
     public float TurnForce = 300;
     public float EngineForce = 250;
-    public float DriftBuildMultiplier = 1;
+    public float DriftBuildVelocity = 15;
+    public float DriftBuildAngular = 1;
+    public float DriftBuildMultiplierSpeed = 1;
+    public float DriftBuildMultiplierMax = 1;
     public bool NoVerticalInput = false;
 
     [Header( "References" )]
@@ -29,6 +32,7 @@ public class HoverVehicle : MonoBehaviour
     private Rigidbody rb;
 
     private bool InputTryBoost = false;
+    private float DriftBuildMultiplier = 0;
     #endregion
 
     #region MonoBehaviour
@@ -102,7 +106,7 @@ public class HoverVehicle : MonoBehaviour
         rb.AddForce( -Time.deltaTime * transform.TransformVector( Vector3.right ) * transform.InverseTransformVector( rb.velocity ).x * 5f );
 
         // Boost Input
-        if ( DriftTurbo > 0 )
+        if ( DriftTurbo > 0.1f )
         {
             if ( InputTryBoost )
             {
@@ -123,17 +127,25 @@ public class HoverVehicle : MonoBehaviour
         // Drifting
         // Turning and slowing down a lot
         // Builds up DriftTurbo
-        if ( rb.velocity.magnitude > 15 && rb.angularVelocity.magnitude > 1 )
+        Vector3 turn = rb.angularVelocity;
+        turn.z = 0;
+        if ( rb.velocity.magnitude > DriftBuildVelocity && turn.magnitude > DriftBuildAngular )
         {
             DriftTurbo += Time.deltaTime * DriftBuildMultiplier;
+            DriftBuildMultiplier += Time.deltaTime * DriftBuildMultiplierSpeed;
+            DriftBuildMultiplier = Mathf.Clamp( DriftBuildMultiplier, 0, DriftBuildMultiplierMax );
             DriftTurbo = Mathf.Clamp( DriftTurbo, 0, 1 );
+        }
+        else
+		{
+            DriftBuildMultiplier = 0;
         }
     }
 
 	private void OnCollisionEnter( Collision collision )
 	{
         // Screenshake
-        FindObjectOfType<CameraFollow>().Shake( collision.relativeVelocity.magnitude );
+        //FindObjectOfType<CameraFollow>().Shake( collision.relativeVelocity.magnitude );
     }
 	#endregion
 

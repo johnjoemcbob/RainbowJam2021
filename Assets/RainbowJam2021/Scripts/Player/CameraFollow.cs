@@ -46,7 +46,7 @@ public class CameraFollow : MonoBehaviour
         int layermask =~ LayerMask.GetMask( "Player" );
         if ( Physics.Raycast( start, dir, out hit, dist, layermask ) )
 		{
-            Vector3 offset = hit.point - dir * 1 + hit.normal * Time.deltaTime * LerpSpeed;
+            Vector3 offset = hit.point - dir * 1;// + hit.normal * Time.deltaTime * LerpSpeed;
             CameraTarget.GetComponent<CameraDistance>().Offset = offset - testpos;
             testpos = offset;
 		}
