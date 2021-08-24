@@ -10,6 +10,10 @@ public class CameraDistance : MonoBehaviour
     public float DistMax = -20;
     public float SpeedMin = 0;
     public float SpeedMax = 100;
+    public float YDistMin = 0;
+    public float YDistMax = 1;
+    public float YSpeedMin = 0;
+    public float YSpeedMax = 100;
     public float FOVMin = 70;
     public float FOVMax = 90;
     public float FOVSpeedMin = 0;
@@ -43,6 +47,9 @@ public class CameraDistance : MonoBehaviour
 
         // Look up/down when travelling in that direction for a better view
         float y = InitialPos.y - Vehicle.GetVelocity().y * YDampner;
+
+        // Y also affected by speed
+        y += Vehicle.GetSpeed().RemapClamped( YSpeedMin, YSpeedMax, YDistMin, YDistMax );
 
         // Lerp camera distance by speed
         float z = Vehicle.GetSpeed().RemapClamped( SpeedMin, SpeedMax, DistMin, DistMax );

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1914590698316952813}
   - component: {fileID: 1914590698316952812}
   - component: {fileID: 1914590698316952811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914590698350395957}
   - component: {fileID: 4809764218695237665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1914590698788880606}
   - component: {fileID: 1914590698788880605}
   - component: {fileID: 1914590698788880604}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 1914590698880520633}
   - component: {fileID: 1914590698880520632}
   - component: {fileID: 1914590698880520631}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914590698900049051}
   - component: {fileID: 1914590698900049050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 1914590699409870264}
   - component: {fileID: 1914590699409870263}
   - component: {fileID: 1914590699409870262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 1914590699425802215}
   - component: {fileID: 1914590699425802214}
   - component: {fileID: 1914590699425802213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
