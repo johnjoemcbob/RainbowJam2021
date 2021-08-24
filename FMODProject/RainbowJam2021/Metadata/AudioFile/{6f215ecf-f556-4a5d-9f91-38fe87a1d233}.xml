@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{f5fe328b-b74b-4b43-a638-f79deb1fe5ed}">
+	<object class="AudioFile" id="{6f215ecf-f556-4a5d-9f91-38fe87a1d233}">
 		<property name="assetPath">
-			<value>SFX/Ship/AirRush.wav</value>
+			<value>SFX/Ship/TurboDown.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>8.2390249433106568</value>
+			<value>1.2970294784580498</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{f46b2d3f-5759-4b3b-80c3-28db0e142b6c}</destination>

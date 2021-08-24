@@ -21,6 +21,8 @@ public class HoverVehicle : MonoBehaviour
     public GameObject Propulsion;
     public GameObject BoostPropulsion;
     public GameObject CenterMass;
+
+    public FMODUnity.StudioEventEmitter TurboSoundEmitter;
     #endregion
 
     #region Variables - Public
@@ -119,6 +121,11 @@ public class HoverVehicle : MonoBehaviour
                 float TurboArrestAngularMultiplier = 1;
                 rb.angularVelocity = Vector3.Lerp( rb.angularVelocity, Vector3.zero, Time.deltaTime * TurboArrestAngularMultiplier );
                 DriftTurbo -= 0.1f;
+
+                if(TurboSoundEmitter != null && !TurboSoundEmitter.IsPlaying())
+                {
+                    TurboSoundEmitter.Play();
+                }
             }
         }
         else
