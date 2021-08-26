@@ -843,6 +843,7 @@ GameObject:
   - component: {fileID: 3160943961181606419}
   - component: {fileID: 3160943961181606418}
   - component: {fileID: 3160943961181606429}
+  - component: {fileID: 919363429}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Player
@@ -883,7 +884,7 @@ MonoBehaviour:
   ThrustForce: 19200
   TurboForce: 153600
   TurnForce: 960
-  EngineForce: 4000
+  EngineForce: 8000
   DriftBuildVelocity: 15
   DriftBuildAngular: 0.6
   DriftBuildMultiplierSpeed: 5
@@ -916,6 +917,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &919363429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3160943961181606416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e797a2309122833408acbf582c279d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinSqrDistance: 5
+  KeyFrames: []
 --- !u!1 &3160943961561207246
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,6 +73,12 @@ public class HoverVehicle : MonoBehaviour
             ToggleStabilisers();
         }
 
+        // Debug ghosts
+        if ( Input.GetKeyDown( KeyCode.Alpha4 ) )
+		{
+            FindObjectOfType<GhostRecorder>().Export();
+		}
+
         // Debug respawn
         if ( transform.localPosition.y < -60 )
 		{

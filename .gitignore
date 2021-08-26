@@ -82,3 +82,5 @@ fmod_editor.log
 
 # FMOD Studio Project
 *.cache
+/RainbowJam2021Server/configserver.php
+/RainbowJam2021Server/config.php
