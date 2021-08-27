@@ -13,11 +13,10 @@ public class DialogueScene : MonoBehaviour
 {
     public DialogueLine[] DialogueLines;
 
-    public UIManager UIManager;
-
+    private UIManager UIManager;
     private int lineNumber;
     private float timer;
-    private bool dialogueActive;
+    private bool triggered;
 
     public void Start()
     {
@@ -26,17 +25,20 @@ public class DialogueScene : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        // TODO: test for player collider
-        // TODO: name tag for each line
-        dialogueActive = true;
-        lineNumber = 0;
-        DisplayDialogueLine();
-        UIManager.SetDialogueBoxActive(true);
+        if (other.CompareTag("Player"))
+        {
+            triggered = true;
+            lineNumber = 0;
+            timer = 2f;
+
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            this.gameObject.GetComponent<SphereCollider>().enabled = false;
+        }
     }
 
     public void Update()
     {
-        if (!dialogueActive)
+        if (!triggered)
         { 
             return;
         }
@@ -45,25 +47,26 @@ public class DialogueScene : MonoBehaviour
 
         if (timer <= 0f)
         {
-            lineNumber++;
-            
             if (lineNumber >= DialogueLines.Length)
             {
-                dialogueActive = false;
                 UIManager.SetDialogueBoxActive(false);
+                this.gameObject.SetActive(false);
             }
             else
             {
                 DisplayDialogueLine();
+
+                timer = 5f;
+                lineNumber++;
             }
         }
     }
 
     private void DisplayDialogueLine()
     {
-        timer = 5f;
         DialogueLine line = DialogueLines[lineNumber];
         UIManager.SetDialogueText(line.Subtitle);
         UIManager.SetDialogueNametag(line.Actor);
+        UIManager.SetDialogueBoxActive(true);
     }
 }
