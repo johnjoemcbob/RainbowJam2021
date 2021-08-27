@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="EncodableAsset" id="{c78630a9-7cef-4d43-8fdb-1984bc6ccbaf}">
+		<property name="assetPath">
+			<value>SFX/Checkpoint/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f46b2d3f-5759-4b3b-80c3-28db0e142b6c}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{8ff5eee5-fb8f-4e96-a402-973afeedcc4d}">
+		<property name="assetPath">
+			<value>SFX/Checkpoint/AirBarrierBreak.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.3358049886621317</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f46b2d3f-5759-4b3b-80c3-28db0e142b6c}</destination>
+		</relationship>
+	</object>
+</objects>
