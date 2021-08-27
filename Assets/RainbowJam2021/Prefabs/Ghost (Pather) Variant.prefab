@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3371156977524115596, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5190606087327383115, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
       propertyPath: JSON
       value: '{ "array": [ {"Pos":{"x":88.02277374267578,"y":47.5739860534668,"z":-87.50323486328125},"Ang":{"x":2.730527877807617,"y":306.6313171386719,"z":-0.0000016026453977247002},"Vel":{"x":-0.04040737450122833,"y":-0.7388920783996582,"z":0.030043965205550195}},
