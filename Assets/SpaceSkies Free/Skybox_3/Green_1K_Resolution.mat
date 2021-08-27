@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Terrain
-  m_Shader: {fileID: 4800000, guid: fea9ee138d4a84d90a0c3f187fb3cd8a, type: 3}
-  m_ShaderKeywords: DR_GRADIENT_ON _CELPRIMARYMODE_SINGLE _UNITYSHADOWMODE_NONE
-  m_LightmapFlags: 4
+  m_Name: Green_1K_Resolution
+  m_Shader: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,15 +19,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BackTex:
+        m_Texture: {fileID: 2800000, guid: 2de8f7b941206fd4fa3b04a38ac11856, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CelCurveTexture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CelStepTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -43,8 +39,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DownTex:
+        m_Texture: {fileID: 2800000, guid: 72a32da9c3843954f834090203b2e5c7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FrontTex:
+        m_Texture: {fileID: 2800000, guid: 70c2a90ba9c7af74cb376647875e1aeb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LeftTex:
+        m_Texture: {fileID: 2800000, guid: a29282953225ed5479c1c8eb3634f167, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -63,57 +71,35 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RightTex:
+        m_Texture: {fileID: 2800000, guid: 461bdf46a3344594f8fff003c2af30ab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UpTex:
+        m_Texture: {fileID: 2800000, guid: 7ed61061585a4014d894a0d3e49c5cd8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _CelExtraEnabled: 0
-    - _CelNumSteps: 3
-    - _CelPrimaryMode: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FlatRimEdgeSmoothness: 0.5
-    - _FlatRimLightAlign: 0
-    - _FlatRimSize: 0.5
-    - _FlatSpecularEdgeSmoothness: 0
-    - _FlatSpecularSize: 0.1
-    - _Flatness: 1
-    - _FlatnessExtra: 1
+    - _Exposure: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientAngle: 0
-    - _GradientCenterX: 0
-    - _GradientCenterY: 0
-    - _GradientEnabled: 1
-    - _GradientSize: 70
-    - _LightContribution: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimEnabled: 0
-    - _SelfShadingSize: 0.8
-    - _SelfShadingSizeExtra: 0.6
-    - _ShadowEdgeSize: 0.034
-    - _ShadowEdgeSizeExtra: 0.05
+    - _Rotation: 0
     - _SmoothnessTextureChannel: 0
-    - _SpecularEnabled: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UnityShadowMode: 0
-    - _UnityShadowPower: 0.2
-    - _UnityShadowSharpness: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6745098, g: 0.91764706, b: 1, a: 1}
-    - _ColorDim: {r: 0.75686276, g: 0.43137255, b: 0.95686275, a: 1}
-    - _ColorDimCurve: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDimExtra: {r: 0.6745098, g: 0.91764706, b: 1, a: 1}
-    - _ColorDimSteps: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorGradient: {r: 0.57420003, g: 0.7058701, b: 0.99, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
-    - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
