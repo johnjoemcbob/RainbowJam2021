@@ -86,7 +86,7 @@ public class GroundEffectParticles : MonoBehaviour
 
     private void UpdateSideTrailsParticles(RaycastHit rayHit)
     {
-        float sideTrailsSpeedScalar = Vehicle.GetSpeed().RemapClamp01(20, 45) * 25.0f;
+        float sideTrailsSpeedScalar = Vehicle.GetSpeed().RemapClamp01(20, 45) * 50.0f;
         
         float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(3, 4);
 
