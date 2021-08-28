@@ -128,11 +128,7 @@ public class GroundEffectParticles : MonoBehaviour
         sideTrailsPos.y = (rayHit.point.y - gameObject.transform.position.y) + 0.5f;
         SideTrailsParticleContainer.localPosition = sideTrailsPos;
 
-
-        var xzVel = Vehicle.GetVelocity();
-        xzVel.y = 0;
-
-        SideTrailsParticleContainer.transform.rotation = Quaternion.LookRotation(xzVel.normalized, Vector3.up);
+        SideTrailsParticleContainer.rotation = Quaternion.LookRotation(Vehicle.GetVelocity().normalized, rayHit.normal);
 
         foreach(var sideTrailsParticles in SideTrailsParticles)
         {
