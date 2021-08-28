@@ -13,6 +13,9 @@ public class GroundEffectParticles : MonoBehaviour
     private ParticleSystem[] FrontSideBlastParticles;
     private ParticleSystem[] SideTrailsParticles;
 
+    private Transform SideTrailLeft;
+    private Transform SideTrailRight;
+
 
     public void Start()
     {
@@ -21,6 +24,9 @@ public class GroundEffectParticles : MonoBehaviour
         FrontBlastParticles = FrontBlastParticlesContainer.GetComponentInChildren<ParticleSystem>();
         FrontSideBlastParticles = FrontSideBlastParticlesContainer.GetComponentsInChildren<ParticleSystem>();
         SideTrailsParticles = SideTrailsParticleContainer.GetComponentsInChildren<ParticleSystem>();
+
+        SideTrailLeft = SideTrailsParticleContainer.Find("Left");
+        SideTrailRight = SideTrailsParticleContainer.Find("Right");
     }
 
     public void Update()
@@ -87,6 +93,7 @@ public class GroundEffectParticles : MonoBehaviour
     private void UpdateSideTrailsParticles(RaycastHit rayHit)
     {
         float sideTrailsSpeedScalar = Vehicle.GetSpeed().RemapClamp01(20, 45) * 50.0f;
+        float sideTrailsTiltScalar = Vehicle.GetSpeed().RemapRangeClamped(30, 70, 20, 45);
         
         float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(3, 4);
 
@@ -108,6 +115,9 @@ public class GroundEffectParticles : MonoBehaviour
             emission.rateOverTime = sideTrailsSpeedScalar;
             particles.startColor = new ParticleSystem.MinMaxGradient(new Color(1.0f, 1.0f, 1.0f, groundDistanceFade));
         }
+
+        SideTrailLeft.localRotation = Quaternion.Euler(-1.0f * sideTrailsTiltScalar, 90, 0);
+        SideTrailRight.localRotation = Quaternion.Euler(sideTrailsTiltScalar, 90, 0);
     }
 
 
