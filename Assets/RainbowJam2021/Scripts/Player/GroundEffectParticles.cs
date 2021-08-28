@@ -8,6 +8,7 @@ public class GroundEffectParticles : MonoBehaviour
     public Transform FrontBlastParticlesContainer;
     public Transform FrontSideBlastParticlesContainer;
     public Transform SideTrailsParticleContainer;
+    public Transform OverallBlastContainer;
 
     private ParticleSystem FrontBlastParticles;
     private ParticleSystem[] FrontSideBlastParticles;
@@ -40,6 +41,8 @@ public class GroundEffectParticles : MonoBehaviour
             UpdateFrontSideBlastParticles(rayHit);
             UpdateSideTrailsParticles(rayHit);
         }
+
+        UpdateOverallBlastContainer();
     }
 
     private void UpdateGroundCenterParticles(RaycastHit rayHit)
@@ -48,13 +51,26 @@ public class GroundEffectParticles : MonoBehaviour
         GroundParticles.rotation = Quaternion.LookRotation(rayHit.normal, Vector3.up) * Quaternion.Euler(90, 0, 0);
     }
 
+    private void UpdateOverallBlastContainer()
+    {
+        var xzVel = Vehicle.GetVelocity();
+        xzVel.y = 0;
+        var rayResult = Physics.Raycast(gameObject.transform.position + xzVel.normalized, Vector3.down, out RaycastHit rayHit, float.MaxValue);
+
+        if(rayResult)
+        {
+            OverallBlastContainer.position = rayHit.point + (-0.1f * rayHit.normal);
+            OverallBlastContainer.rotation = Quaternion.LookRotation(Vehicle.GetVelocity().normalized, rayHit.normal);
+        }
+    }
+
     private void UpdateFrontBlastParticles(RaycastHit rayHit)
     {
         float frontBlastSpeedScalar = Vehicle.GetSpeed().RemapClamp01(20, 60) * 1.5f;
         float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(3, 4);
 
         var frontBlastPos = FrontBlastParticlesContainer.localPosition;
-        frontBlastPos.y = (rayHit.point.y - gameObject.transform.position.y) + (1.0f * frontBlastSpeedScalar);
+        frontBlastPos.y = frontBlastSpeedScalar;
         FrontBlastParticlesContainer.localPosition = frontBlastPos;
 
         var frontBlastScale = FrontBlastParticlesContainer.localScale;
@@ -73,14 +89,15 @@ public class GroundEffectParticles : MonoBehaviour
         float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(3, 4);
 
         var frontSideBlastPos = FrontSideBlastParticlesContainer.localPosition;
-        frontSideBlastPos.y = (rayHit.point.y - gameObject.transform.position.y) + (1.0f * frontSideBlastSpeedScalar);
-        frontSideBlastPos.z = 1.0f + stretchScalar;
+        frontSideBlastPos.y = frontSideBlastSpeedScalar;
         FrontSideBlastParticlesContainer.localPosition = frontSideBlastPos;
 
         var frontSideBlastScale = FrontSideBlastParticlesContainer.localScale;
         frontSideBlastScale.y = frontSideBlastSpeedScalar;
         frontSideBlastScale.z = stretchScalar;
         FrontSideBlastParticlesContainer.localScale = frontSideBlastScale;
+
+
 
         foreach(var frontSideBlastParticles in FrontSideBlastParticles)
         {
