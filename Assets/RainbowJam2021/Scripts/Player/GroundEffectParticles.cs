@@ -10,6 +10,7 @@ public class GroundEffectParticles : MonoBehaviour
     public Transform SideTrailsParticleContainer;
     public Transform OverallBlastContainer;
 
+    private ParticleSystem GroundParticleSystem;
     private ParticleSystem FrontBlastParticles;
     private ParticleSystem[] FrontSideBlastParticles;
     private ParticleSystem[] SideTrailsParticles;
@@ -25,6 +26,8 @@ public class GroundEffectParticles : MonoBehaviour
         FrontBlastParticles = FrontBlastParticlesContainer.GetComponentInChildren<ParticleSystem>();
         FrontSideBlastParticles = FrontSideBlastParticlesContainer.GetComponentsInChildren<ParticleSystem>();
         SideTrailsParticles = SideTrailsParticleContainer.GetComponentsInChildren<ParticleSystem>();
+
+        GroundParticleSystem = GroundParticles.GetComponentInChildren<ParticleSystem>();
 
         SideTrailLeft = SideTrailsParticleContainer.Find("Left");
         SideTrailRight = SideTrailsParticleContainer.Find("Right");
@@ -49,6 +52,13 @@ public class GroundEffectParticles : MonoBehaviour
     {
         GroundParticles.position = rayHit.point + (Vector3.up * 0.1f);
         GroundParticles.rotation = Quaternion.LookRotation(rayHit.normal, Vector3.up) * Quaternion.Euler(90, 0, 0);
+
+        float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(1, 5);
+
+        var groundScale = GroundParticles.localScale;
+        groundScale.x = 0.5f + groundDistanceFade;
+        groundScale.z = 0.5f + groundDistanceFade;
+        GroundParticles.localScale = groundScale;
     }
 
     private void UpdateOverallBlastContainer()
@@ -118,11 +128,7 @@ public class GroundEffectParticles : MonoBehaviour
         sideTrailsPos.y = (rayHit.point.y - gameObject.transform.position.y) + 0.5f;
         SideTrailsParticleContainer.localPosition = sideTrailsPos;
 
-
-        var xzVel = Vehicle.GetVelocity();
-        xzVel.y = 0;
-
-        SideTrailsParticleContainer.transform.rotation = Quaternion.LookRotation(xzVel.normalized, Vector3.up);
+        SideTrailsParticleContainer.rotation = Quaternion.LookRotation(Vehicle.GetVelocity().normalized, rayHit.normal);
 
         foreach(var sideTrailsParticles in SideTrailsParticles)
         {
