@@ -6,18 +6,21 @@ public class GroundEffectParticles : MonoBehaviour
     public HoverVehicle Vehicle;
     public Transform GroundParticles;
     public Transform FrontBlastParticlesContainer;
-    public Transform SideBlastParticlesContainer;
+    public Transform FrontSideBlastParticlesContainer;
+    public Transform SideTrailsParticleContainer;
 
     private ParticleSystem FrontBlastParticles;
     private ParticleSystem[] FrontSideBlastParticles;
+    private ParticleSystem[] SideTrailsParticles;
 
 
     public void Start()
     {
-        Debug.Assert(FrontBlastParticlesContainer != null && SideBlastParticlesContainer != null && GroundParticles != null, "Please set up the particle containers for this GroundEffectParticles instance.");
+        Debug.Assert(FrontBlastParticlesContainer != null && FrontSideBlastParticlesContainer != null && GroundParticles != null, "Please set up the particle containers for this GroundEffectParticles instance.");
         
         FrontBlastParticles = FrontBlastParticlesContainer.GetComponentInChildren<ParticleSystem>();
-        FrontSideBlastParticles = SideBlastParticlesContainer.GetComponentsInChildren<ParticleSystem>();
+        FrontSideBlastParticles = FrontSideBlastParticlesContainer.GetComponentsInChildren<ParticleSystem>();
+        SideTrailsParticles = SideTrailsParticleContainer.GetComponentsInChildren<ParticleSystem>();
     }
 
     public void Update()
@@ -29,6 +32,7 @@ public class GroundEffectParticles : MonoBehaviour
             UpdateGroundCenterParticles(rayHit);
             UpdateFrontBlastParticles(rayHit);
             UpdateFrontSideBlastParticles(rayHit);
+            UpdateSideTrailsParticles(rayHit);
         }
     }
 
@@ -62,15 +66,15 @@ public class GroundEffectParticles : MonoBehaviour
         float stretchScalar = Vehicle.GetSpeed().RemapRangeClamped(35,50, 1.0f, 2.0f);
         float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(3, 4);
 
-        var frontBlastPos = SideBlastParticlesContainer.localPosition;
-        frontBlastPos.y = (rayHit.point.y - gameObject.transform.position.y) + (1.0f * frontSideBlastSpeedScalar);
-        frontBlastPos.z = 1.0f + stretchScalar;
-        SideBlastParticlesContainer.localPosition = frontBlastPos;
+        var frontSideBlastPos = FrontSideBlastParticlesContainer.localPosition;
+        frontSideBlastPos.y = (rayHit.point.y - gameObject.transform.position.y) + (1.0f * frontSideBlastSpeedScalar);
+        frontSideBlastPos.z = 1.0f + stretchScalar;
+        FrontSideBlastParticlesContainer.localPosition = frontSideBlastPos;
 
-        var frontSideBlastScale = SideBlastParticlesContainer.localScale;
+        var frontSideBlastScale = FrontSideBlastParticlesContainer.localScale;
         frontSideBlastScale.y = frontSideBlastSpeedScalar;
         frontSideBlastScale.z = stretchScalar;
-        SideBlastParticlesContainer.localScale = frontSideBlastScale;
+        FrontSideBlastParticlesContainer.localScale = frontSideBlastScale;
 
         foreach(var frontSideBlastParticles in FrontSideBlastParticles)
         {
@@ -78,6 +82,32 @@ public class GroundEffectParticles : MonoBehaviour
             particles.startColor = new ParticleSystem.MinMaxGradient(new Color(1.0f, 1.0f, 1.0f, groundDistanceFade));
         }
         
+    }
+
+    private void UpdateSideTrailsParticles(RaycastHit rayHit)
+    {
+        float sideTrailsSpeedScalar = Vehicle.GetSpeed().RemapClamp01(20, 45) * 25.0f;
+        
+        float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(3, 4);
+
+        var sideTrailsPos = SideTrailsParticleContainer.localPosition;
+        sideTrailsPos.y = (rayHit.point.y - gameObject.transform.position.y) + 0.5f;
+        SideTrailsParticleContainer.localPosition = sideTrailsPos;
+
+
+        var xzVel = Vehicle.GetVelocity();
+        xzVel.y = 0;
+
+        SideTrailsParticleContainer.transform.rotation = Quaternion.LookRotation(xzVel.normalized, Vector3.up);
+
+        foreach(var sideTrailsParticles in SideTrailsParticles)
+        {
+            var particles = sideTrailsParticles.main;
+            var emission = sideTrailsParticles.emission;
+
+            emission.rateOverTime = sideTrailsSpeedScalar;
+            particles.startColor = new ParticleSystem.MinMaxGradient(new Color(1.0f, 1.0f, 1.0f, groundDistanceFade));
+        }
     }
 
 
