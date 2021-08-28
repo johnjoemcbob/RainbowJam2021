@@ -84,3 +84,13 @@ fmod_editor.log
 *.cache
 /RainbowJam2021Server/configserver.php
 /RainbowJam2021Server/config.php
+/Assets/StreamingAssets.meta
+/Assets/StreamingAssets/Master.bank
+/Assets/StreamingAssets/Master.bank.meta
+/Assets/StreamingAssets/Master.strings.bank
+/Assets/StreamingAssets/Master.strings.bank.meta
+/Assets/StreamingAssets/Music.bank
+/Assets/StreamingAssets/Music.bank.meta
+/Assets/StreamingAssets/SFX.bank
+/Assets/StreamingAssets/SFX.bank.meta
+/.vsconfig
