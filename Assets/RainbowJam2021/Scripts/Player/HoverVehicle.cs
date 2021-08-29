@@ -19,9 +19,11 @@ public class HoverVehicle : MonoBehaviour
     public float DriftTurnMultiplier = 1;
     public float DriftBuildVelocity = 15;
     public float DriftBuildAngular = 1;
+    public float DriftBuildMultiplierInitial = 0.5f;
     public float DriftBuildMultiplierSpeed = 1;
     public float DriftBuildMultiplierMax = 1;
     public float DriftVisualTiltAngle = 30;
+    public float DriftTurboEpsilon = 0.01f;
     public float AngleLerpSpeed = 5;
     public bool ConstantTurboPunch = true;
     public Vector3 DriftPunch = Vector3.one;
@@ -270,7 +272,7 @@ public class HoverVehicle : MonoBehaviour
 
     void StartDrifting()
 	{
-        
+        DriftBuildMultiplier = DriftBuildMultiplierInitial;
 	}
 
     void RunDrifting()
@@ -321,7 +323,7 @@ public class HoverVehicle : MonoBehaviour
     #region Turbo Boosting
     void UpdateBoosting()
 	{
-        if ( DriftTurbo > 0.1f )
+        if ( DriftTurbo > DriftTurboEpsilon )
         {
             if ( InputTryBoost )
             {

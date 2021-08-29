@@ -1148,18 +1148,20 @@ MonoBehaviour:
   ThrustForce: 19200
   TurnForce: 960
   EngineForce: 8000
-  TurboForce: 153600
+  TurboForce: 96000
   TurboDownForce: 14222.225
-  TurboConsumeRate: 0.05
+  TurboConsumeRate: 0.015
   DriftArcForce: 600
   DriftArcForwardForce: 100
   DriftSlowMultiplier: 0.1
   DriftTurnMultiplier: 0.5
   DriftBuildVelocity: 15
   DriftBuildAngular: 1
-  DriftBuildMultiplierSpeed: 12
-  DriftBuildMultiplierMax: 12
+  DriftBuildMultiplierInitial: 0.25
+  DriftBuildMultiplierSpeed: 0.5
+  DriftBuildMultiplierMax: 2
   DriftVisualTiltAngle: -1
+  DriftTurboEpsilon: 0.01
   AngleLerpSpeed: 5
   ConstantTurboPunch: 1
   DriftPunch: {x: 0.6, y: 0.5, z: 0.5}
