@@ -23,19 +23,6 @@ public class DialogueScene : MonoBehaviour
         UIManager = GameObject.FindObjectOfType<UIManager>();
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            triggered = true;
-            lineNumber = 0;
-            timer = 2f;
-
-            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            this.gameObject.GetComponent<SphereCollider>().enabled = false;
-        }
-    }
-
     public void Update()
     {
         if (!triggered)
@@ -50,7 +37,6 @@ public class DialogueScene : MonoBehaviour
             if (lineNumber >= DialogueLines.Length)
             {
                 UIManager.SetDialogueBoxActive(false);
-                this.gameObject.SetActive(false);
             }
             else
             {
@@ -60,6 +46,19 @@ public class DialogueScene : MonoBehaviour
                 lineNumber++;
             }
         }
+    }
+
+    public void Activate()
+    {
+        triggered = true;
+        lineNumber = 0;
+        timer = 2f;
+    }
+
+    public void Stop()
+	{
+        triggered = false;
+        UIManager.SetDialogueBoxActive( false );
     }
 
     private void DisplayDialogueLine()

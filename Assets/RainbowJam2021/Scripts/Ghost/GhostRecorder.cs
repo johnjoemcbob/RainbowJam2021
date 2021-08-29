@@ -85,8 +85,8 @@ public class GhostRecorder : MonoBehaviour
 			output += "\n]\n";
 			output += "}";
 		}
-		//Save( output );
-		Upload( output );
+		Save( output );
+		//Upload( output );
 
 		// Reset
 		KeyFrames.Clear();

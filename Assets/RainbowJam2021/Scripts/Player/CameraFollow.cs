@@ -60,9 +60,10 @@ public class CameraFollow : MonoBehaviour
         ShakeTime += Time.deltaTime * ShakeDropoff;
         CurrentShake = Mathf.Lerp( ShakeStart, 0, ShakeTime );
     }
-    #endregion
+	#endregion
 
-    float ShakeStart = 0;
+	#region Camera
+	float ShakeStart = 0;
     float ShakeTime = 0;
     public void Shake( float shake )
 	{
@@ -74,4 +75,10 @@ public class CameraFollow : MonoBehaviour
             CurrentShake = ShakeStart;
         }
     }
+
+    public void Teleport()
+	{
+        transform.position = CameraTarget.position;
+    }
+	#endregion
 }

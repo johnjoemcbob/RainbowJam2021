@@ -57,6 +57,9 @@ public class HoverVehicle : MonoBehaviour
     private bool Boosting = false;
     private bool DebugInfiniteTurbo = false;
     private Vector3 TargetDriftAngle = Vector3.zero;
+    private CheckpointActivator LastCheckpoint;
+    private Vector3 LastCheckpointPos;
+    private Vector3 LastCheckpointAng;
     #endregion
 
     #region MonoBehaviour
@@ -69,6 +72,8 @@ public class HoverVehicle : MonoBehaviour
 
         ToggleEngineVisualise();
         ToggleStabiliserVisualise();
+
+        LastCheckpointPos = transform.position;
     }
 
 	private void Update()
@@ -427,5 +432,33 @@ public class HoverVehicle : MonoBehaviour
         PunchMesh.PunchScale = TurboFinishPunch;
         PunchMesh.Punch();
     }
-	#endregion
+    #endregion
+
+    #region Checkpoint
+    public void StoreCheckpoint( CheckpointActivator checkpoint )
+	{
+        if ( LastCheckpoint )
+		{
+            LastCheckpoint.ReachedNext();
+        }
+
+        LastCheckpoint = checkpoint;
+        LastCheckpointPos = transform.position;
+        LastCheckpointAng = transform.eulerAngles;
+	}
+
+    public void ResetToCheckpoint()
+	{
+        transform.position = LastCheckpointPos;
+        transform.eulerAngles = LastCheckpointAng;
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        DriftTurbo = 1;
+
+        // Camera immediately
+        FindObjectOfType<CameraFollow>().Teleport();
+	}
+    #endregion
 }
