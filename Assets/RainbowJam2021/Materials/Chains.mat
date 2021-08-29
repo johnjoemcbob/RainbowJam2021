@@ -82,9 +82,9 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientAngle: 200
-    - _GradientCenterX: 0
-    - _GradientCenterY: -500
+    - _GradientAngle: 193
+    - _GradientCenterX: -11
+    - _GradientCenterY: -14504
     - _GradientEnabled: 1
     - _GradientSize: 30
     - _LightContribution: 0
