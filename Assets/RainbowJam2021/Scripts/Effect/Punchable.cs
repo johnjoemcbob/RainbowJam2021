@@ -7,7 +7,7 @@ public class Punchable : MonoBehaviour
 	public Vector3 PunchScale;
 	protected Vector3 TargetScale;
 
-	void Start()
+	virtual public void Start()
 	{
 		TargetScale = transform.localScale;
 	}

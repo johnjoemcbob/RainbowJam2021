@@ -1149,6 +1149,7 @@ MonoBehaviour:
   TurnForce: 960
   EngineForce: 8000
   TurboForce: 153600
+  TurboDownForce: 14222.225
   TurboConsumeRate: 0.05
   DriftArcForce: 600
   DriftArcForwardForce: 100
@@ -1165,6 +1166,9 @@ MonoBehaviour:
   TurboStartPunch: {x: 0.6, y: 0.5, z: 0.5}
   TurboFinishPunch: {x: 0.8, y: 0.5, z: 0.5}
   NoVerticalInput: 1
+  VerticalBoostInputDownMultiplier: 0
+  VerticalBoostInputUpMultiplier: 0
+  YRespawnHeight: -300
   Engines:
   - {fileID: 3160943961957422396}
   - {fileID: 3160943962443678260}
@@ -1175,7 +1179,7 @@ MonoBehaviour:
   BoostPropulsion: {fileID: 6423708496338197140}
   CenterMass: {fileID: 3160943962269512277}
   TurboSoundEmitter: {fileID: 8032498702169403580}
-  DriftTurbo: 1
+  DriftTurbo: 0
 --- !u!54 &3160943961181606429
 Rigidbody:
   m_ObjectHideFlags: 0

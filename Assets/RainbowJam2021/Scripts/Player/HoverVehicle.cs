@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HoverVehicle : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class HoverVehicle : MonoBehaviour
     public float TurnForce = 300;
     public float EngineForce = 250;
     public float TurboForce = 800;
+    public float TurboDownForce = 400;
     public float TurboConsumeRate = 0.05f;
     public float DriftArcForce = 400;
     public float DriftArcForwardForce = 400;
@@ -26,6 +28,9 @@ public class HoverVehicle : MonoBehaviour
     public Vector3 TurboStartPunch = Vector3.one;
     public Vector3 TurboFinishPunch = Vector3.one;
     public bool NoVerticalInput = false;
+    public float VerticalBoostInputDownMultiplier = 0;
+    public float VerticalBoostInputUpMultiplier = 0;
+    public float YRespawnHeight = -60;
 
     [Header( "References" )]
     public List<GameObject> Engines;
@@ -104,8 +109,14 @@ public class HoverVehicle : MonoBehaviour
             DebugInfiniteTurbo = !DebugInfiniteTurbo;
         }
 
+        // Debug return to menu
+        if ( Input.GetKeyDown( KeyCode.Alpha0 ) )
+        {
+            SceneManager.LoadScene( 0, LoadSceneMode.Single );
+        }
+
         // Debug respawn
-        if ( transform.localPosition.y < -60 )
+        if ( transform.localPosition.y < YRespawnHeight )
 		{
             Respawn();
 		}
@@ -348,28 +359,63 @@ public class HoverVehicle : MonoBehaviour
 
     void RunBoosting()
     {
-        // Directional Input
-        Vector3 forward = transform.TransformDirection( Vector3.forward );
-        if ( NoVerticalInput )
-        {
-            forward.y = 0;
-        }
-
         // Cancel horizontal velocity
         Vector3 vel = rb.velocity;
         vel.y = 0;
         rb.AddForceAtPosition( -vel, Propulsion.transform.position );
 
+        // Move forward in new direction
+        Vector3 forward = transform.TransformDirection( Vector3.forward );
+        if ( forward.y < 0 )
+        {
+            forward.y *= VerticalBoostInputDownMultiplier;
+        }
+		else
+		{
+            forward.y *= VerticalBoostInputUpMultiplier;
+		}
         rb.AddForceAtPosition( Time.deltaTime * forward * TurboForce, BoostPropulsion.transform.position );
+
+        // Stick to ground
+        // If not already in air
+        float dist = 10000;
+        Vector3 start = transform.position + Vector3.up * dist / 2;
+        int layermask =~ LayerMask.GetMask( "Player" );
+        RaycastHit hit;
+        //if ( Physics.Raycast( start, Vector3.down, out hit, dist, layermask ) )
+        {
+            //float y = hit.point.y - transform.position.y;
+            //if ( y < 1 )
+            {
+                // Check the raycast against ground in front
+                // If its lower than the vehicle then press down
+                dist = 10000;
+                start = transform.position + transform.forward * 10 + Vector3.up * dist / 2;
+                if ( Physics.Raycast( start, Vector3.down, out hit, dist ) )
+                {
+                    float y = hit.point.y - transform.position.y;
+                    if ( y > -15 && y < 0 )
+                    {
+                        rb.AddForceAtPosition( Time.deltaTime * transform.TransformDirection( Vector3.up ) * y * TurboDownForce, transform.position );
+                    }
+                }
+            }
+        }
+
+        // Turn!
         float TurboArrestAngularMultiplier = 1;
         rb.angularVelocity = Vector3.Lerp( rb.angularVelocity, Vector3.zero, Time.deltaTime * TurboArrestAngularMultiplier );
+
+        // Consume the turbo
         DriftTurbo -= TurboConsumeRate;
 
+        // Sound
         if ( TurboSoundEmitter != null && !TurboSoundEmitter.IsPlaying() )
         {
             TurboSoundEmitter.Play();
         }
 
+        // Visual scale punch
         if ( ConstantTurboPunch )
         {
             PunchMesh.Punch();

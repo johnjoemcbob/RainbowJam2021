@@ -6,36 +6,59 @@ using UnityEngine.SceneManagement;
 
 public class FMODLoader : MonoBehaviour
 {
-    public GameObject Button;
+    public GameObject[] Buttons;
 
     bool audioResumed = false;
 
     void Start()
     {
-        Button.SetActive( false );
+        foreach ( var button in Buttons )
+        {
+            button.SetActive( false );
+        }
     }
 
     void Update()
     {
-        if ( FMODUnity.RuntimeManager.HasBankLoaded( "Master" ) && !Button.activeSelf )
+        if ( FMODUnity.RuntimeManager.HasBankLoaded( "Master" ) && !Buttons[0].activeSelf )
         {
-            Debug.Log( "Master Bank Loaded" );
-            Button.SetActive( true );
+			foreach ( var button in Buttons )
+            {
+                button.SetActive( true );
+            }
         }
     }
 
     public void ButtonPlay()
-	{
-        Button.SetActive( false );
+    {
+        foreach ( var button in Buttons )
+        {
+            button.SetActive( false );
+        }
         FindObjectOfType<Text>().text = "Loading.";
         SceneManager.LoadSceneAsync( 1, LoadSceneMode.Single );
 
+        RestartFMOD();
+    }
+
+    public void ButtonDebug()
+    {
+        foreach ( var button in Buttons )
+        {
+            button.SetActive( false );
+        }
+        FindObjectOfType<Text>().text = "Loading.";
+        SceneManager.LoadSceneAsync( 2, LoadSceneMode.Single );
+
+        RestartFMOD();
+    }
+
+    void RestartFMOD()
+    {
         if ( !audioResumed )
         {
             var result = FMODUnity.RuntimeManager.CoreSystem.mixerSuspend();
-            Debug.Log( result );
             result = FMODUnity.RuntimeManager.CoreSystem.mixerResume();
-            Debug.Log( result );
             audioResumed = true;
         }
     }
