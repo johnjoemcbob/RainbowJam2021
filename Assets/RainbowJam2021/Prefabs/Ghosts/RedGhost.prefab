@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1ddae21bd8c4f0f48b315436a839660d, type: 2}
+    - target: {fileID: 830301206246272422, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
+      propertyPath: Event
+      value: event:/SFX/Ship/Ghosts/EngineThrum_Red
+      objectReference: {fileID: 0}
     - target: {fileID: 1219140374573043777, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -83,5 +87,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1ddae21bd8c4f0f48b315436a839660d, type: 2}
+    - target: {fileID: 8218827635272235145, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
+      propertyPath: m_Color.b
+      value: 0.08503916
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218827635272235145, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
+      propertyPath: m_Color.g
+      value: 0.13187128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218827635272235145, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8584906
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}

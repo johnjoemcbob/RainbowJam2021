@@ -42,6 +42,9 @@ public class CheckpointActivator : MonoBehaviour
         {
             Activate();
 
+            // Play dialogue (only the first time)
+            GetComponent<DialogueScene>().Activate();
+
             // Store player position in case of reset to checkpoint
             FindObjectOfType<HoverVehicle>().StoreCheckpoint( this );
         }
@@ -63,9 +66,6 @@ public class CheckpointActivator : MonoBehaviour
         // Stop further activations
         GetComponent<Collider>().enabled = false;
         Activated = true;
-
-        // Play dialogue
-        GetComponent<DialogueScene>().Activate();
 
         // Play ghost paths
         Ghosts = new List<GameObject>();

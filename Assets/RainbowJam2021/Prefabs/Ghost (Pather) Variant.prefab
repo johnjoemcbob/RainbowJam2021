@@ -372,6 +372,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &830301206246272422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219140374755520352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Ship/Ghosts/EngineThrum_Silver
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 40
 --- !u!114 &365687535510041938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157824a5d320c214489381346704650f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Offset: 0.3
+  Divider: 5
 --- !u!1001 &6685564340289351683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,7 +418,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3371156977524115596, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5190606087327383115, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
       propertyPath: JSON
@@ -482,6 +507,11 @@ PrefabInstance:
     - {fileID: 5488943392089972513, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
     - {fileID: 5488943392089972526, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
+--- !u!1 &1219140374755520352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5488943390673641315, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
+  m_PrefabInstance: {fileID: 6685564340289351683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1219140376157695777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5488943392089972514, guid: a4146f1be0673aa4797573d42aef8df8, type: 3}
