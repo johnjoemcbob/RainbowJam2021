@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{98d7bf80-039c-4d69-b548-3e358181d5b7}">
+		<property name="name">
+			<value>Green</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{a9e06cc8-955a-47ad-bc4c-f8b3e48d8ac3}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{09ed64f5-7316-4d17-b420-0ae3994777b8}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{7d235442-2080-49ed-a188-72923c8f922b}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{a9e06cc8-955a-47ad-bc4c-f8b3e48d8ac3}">
+		<relationship name="effects">
+			<destination>{19e00a5c-b825-4566-a890-9fb4561da849}</destination>
+			<destination>{ce958fb7-790b-470b-9c4d-a508bb1eb34f}</destination>
+			<destination>{263c7d83-12dd-4d48-b57d-c5b37d676dec}</destination>
+			<destination>{0eff2a06-55b0-429e-b7e4-39540c79a2e4}</destination>
+			<destination>{092d1111-0278-4525-9083-afd4c33eced5}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{09ed64f5-7316-4d17-b420-0ae3994777b8}" />
+	<object class="DistortionEffect" id="{19e00a5c-b825-4566-a890-9fb4561da849}">
+		<property name="level">
+			<value>0.349999994</value>
+		</property>
+	</object>
+	<object class="ChorusEffect" id="{ce958fb7-790b-470b-9c4d-a508bb1eb34f}">
+		<property name="depth">
+			<value>56.5</value>
+		</property>
+	</object>
+	<object class="PitchShifterEffect" id="{263c7d83-12dd-4d48-b57d-c5b37d676dec}">
+		<property name="pitch">
+			<value>1.31999993</value>
+		</property>
+		<property name="fftSize">
+			<value>940</value>
+		</property>
+		<property name="overlap">
+			<value>6.5999999</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{0eff2a06-55b0-429e-b7e4-39540c79a2e4}">
+		<property name="filterTypeA">
+			<value>6</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{092d1111-0278-4525-9083-afd4c33eced5}" />
+</objects>

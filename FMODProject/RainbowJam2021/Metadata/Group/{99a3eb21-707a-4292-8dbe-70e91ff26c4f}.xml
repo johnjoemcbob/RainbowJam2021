@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{99a3eb21-707a-4292-8dbe-70e91ff26c4f}">
+		<property name="name">
+			<value>Red</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{f68f40ce-ff33-412f-9919-777aab061a2d}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{530f6157-810f-4802-b8be-fff7d9d1889c}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{7d235442-2080-49ed-a188-72923c8f922b}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{f68f40ce-ff33-412f-9919-777aab061a2d}">
+		<relationship name="effects">
+			<destination>{981c5699-c9fe-4b77-a72a-59119471f687}</destination>
+			<destination>{2ce67979-807b-4547-b9a0-f0c6d800f7d5}</destination>
+			<destination>{c8aee6df-2743-4b32-aff4-36f8087a10d2}</destination>
+			<destination>{72fef56e-7aee-4908-b345-291a8bc96890}</destination>
+			<destination>{34b7916a-6a56-4f3b-9ad8-f8d875a37613}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{530f6157-810f-4802-b8be-fff7d9d1889c}" />
+	<object class="DistortionEffect" id="{981c5699-c9fe-4b77-a72a-59119471f687}">
+		<property name="level">
+			<value>0.354999989</value>
+		</property>
+	</object>
+	<object class="ChorusEffect" id="{2ce67979-807b-4547-b9a0-f0c6d800f7d5}">
+		<property name="depth">
+			<value>59.5</value>
+		</property>
+	</object>
+	<object class="PitchShifterEffect" id="{c8aee6df-2743-4b32-aff4-36f8087a10d2}">
+		<property name="pitch">
+			<value>1.04999995</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{72fef56e-7aee-4908-b345-291a8bc96890}">
+		<property name="filterTypeA">
+			<value>6</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{34b7916a-6a56-4f3b-9ad8-f8d875a37613}" />
+</objects>

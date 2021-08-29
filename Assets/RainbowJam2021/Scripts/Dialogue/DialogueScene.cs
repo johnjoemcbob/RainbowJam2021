@@ -41,8 +41,6 @@ public class DialogueScene : MonoBehaviour
             else
             {
                 DisplayDialogueLine();
-
-                timer = 5f;
                 lineNumber++;
             }
         }
@@ -69,10 +67,16 @@ public class DialogueScene : MonoBehaviour
         UIManager.SetDialogueBoxActive(true);
 
         // Play the audio!
-        //FMODUnity.EventManager.EventFromString( line.VoiceLine );
         if ( line.VoiceLine != "" )
         {
-            FMODUnity.RuntimeManager.PlayOneShotAttached( line.VoiceLine, FindObjectOfType<HoverVehicle>().gameObject );
+            var voiceLineEvent = FMODUnity.RuntimeManager.CreateInstance(line.VoiceLine);
+            voiceLineEvent.getDescription(out var voiceLineDescription);
+            voiceLineDescription.getLength(out var voiceLineLengthMs);
+
+            timer = (voiceLineLengthMs / 1000f) + 1f;
+
+            voiceLineEvent.start();
+            voiceLineEvent.release();
         }
     }
 }
