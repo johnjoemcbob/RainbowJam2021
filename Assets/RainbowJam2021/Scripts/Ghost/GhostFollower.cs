@@ -21,6 +21,7 @@ public class GhostFollower : MonoBehaviour
 
 	#region Variables - Private
 	private GhostRecorder Recorder;
+	private FMODUnity.StudioEventEmitter EngineThrum;
 
     private int Frame = 0;
 	private List<GhostRecorder.KeyFrame> KeyFrames = new List<GhostRecorder.KeyFrame>();
@@ -30,6 +31,7 @@ public class GhostFollower : MonoBehaviour
 	private void Start()
 	{
         Recorder = FindObjectOfType<GhostRecorder>();
+		EngineThrum = FindObjectOfType<FMODUnity.StudioEventEmitter>();
 
 		if ( JSON != "" )
 		{
@@ -59,6 +61,8 @@ public class GhostFollower : MonoBehaviour
 				transform.position = Vector3.MoveTowards( transform.position, frame.Pos, Time.deltaTime * frame.Vel.magnitude * MoveSpeed );
 				transform.rotation = Quaternion.Lerp( transform.rotation, Quaternion.Euler( frame.Ang ), Time.deltaTime * TurnSpeed );
 
+				EngineThrum.SetParameter( "IndividualVehicleSpeed", 100 );
+
 				float dist = ( transform.position - frame.Pos ).sqrMagnitude;
 				if ( dist <= MinSqrDistance )
 				{
@@ -69,6 +73,8 @@ public class GhostFollower : MonoBehaviour
 			{
 				Checkpoint.GhostFinished( this );
 				Checkpoint = null;
+
+				EngineThrum.SetParameter( "IndividualVehicleSpeed", 0 );
 			}
 		}
     }

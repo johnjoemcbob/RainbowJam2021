@@ -67,5 +67,12 @@ public class DialogueScene : MonoBehaviour
         UIManager.SetDialogueText(line.Subtitle);
         UIManager.SetDialogueNametag(line.Actor);
         UIManager.SetDialogueBoxActive(true);
+
+        // Play the audio!
+        //FMODUnity.EventManager.EventFromString( line.VoiceLine );
+        if ( line.VoiceLine != "" )
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached( line.VoiceLine, FindObjectOfType<HoverVehicle>().gameObject );
+        }
     }
 }

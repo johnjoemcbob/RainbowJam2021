@@ -18,11 +18,7 @@ PrefabInstance:
     - target: {fileID: 487886078764189681, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ddae21bd8c4f0f48b315436a839660d, type: 2}
-    - target: {fileID: 830301206246272422, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
-      propertyPath: Event
-      value: event:/SFX/Ship/Ghosts/EngineThrum_Red
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: d3f3fb5b764178849bdb2f9a62864a7b, type: 2}
     - target: {fileID: 1219140374573043777, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -69,35 +65,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1219140374573043782, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Name
-      value: RedGhost
+      value: SilverGhost
       objectReference: {fileID: 0}
     - target: {fileID: 1219140376157695778, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ddae21bd8c4f0f48b315436a839660d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2754970931984970779, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ddae21bd8c4f0f48b315436a839660d, type: 2}
+      objectReference: {fileID: 2100000, guid: d3f3fb5b764178849bdb2f9a62864a7b, type: 2}
     - target: {fileID: 4278993466736906704, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ddae21bd8c4f0f48b315436a839660d, type: 2}
+      objectReference: {fileID: 2100000, guid: d3f3fb5b764178849bdb2f9a62864a7b, type: 2}
     - target: {fileID: 7532511282467910998, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ddae21bd8c4f0f48b315436a839660d, type: 2}
+      objectReference: {fileID: 2100000, guid: d3f3fb5b764178849bdb2f9a62864a7b, type: 2}
     - target: {fileID: 8218827635272235145, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Color.b
-      value: 0.08503916
+      value: 0.6509434
       objectReference: {fileID: 0}
     - target: {fileID: 8218827635272235145, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Color.g
-      value: 0.13187128
+      value: 0.65043163
       objectReference: {fileID: 0}
     - target: {fileID: 8218827635272235145, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
       propertyPath: m_Color.r
-      value: 0.8584906
+      value: 0.623309
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b71b6b968e2ee548989d8e724158c79, type: 3}
