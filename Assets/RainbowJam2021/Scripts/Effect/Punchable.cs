@@ -12,7 +12,7 @@ public class Punchable : MonoBehaviour
 		TargetScale = transform.localScale;
 	}
 
-    void Update()
+    virtual public void Update()
 	{
 		transform.localScale = Vector3.Lerp( transform.localScale, TargetScale, Time.deltaTime * 5 );
 	}
