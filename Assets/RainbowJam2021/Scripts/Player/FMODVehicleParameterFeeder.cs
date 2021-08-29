@@ -20,6 +20,7 @@ public class FMODVehicleParameterFeeder : MonoBehaviour
 	{
         if(IsPlayer)
         {
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Boosting", Vehicle.Boosting ? 1 : 0);
 		    FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PlayerVehicleSpeed", Vehicle.GetSpeed());
         }
         

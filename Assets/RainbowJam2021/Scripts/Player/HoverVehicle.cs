@@ -46,6 +46,8 @@ public class HoverVehicle : MonoBehaviour
     #region Variables - Public
     [HideInInspector]
     public float DriftTurbo = 0;
+    [HideInInspector]
+    public bool Boosting = false;
     #endregion
 
     #region Variables - Private
@@ -56,7 +58,6 @@ public class HoverVehicle : MonoBehaviour
     private float DriftBuildMultiplier = 0;
     private bool InputTryDrift = false;
     private bool InputTryBoost = false;
-    private bool Boosting = false;
     private bool DebugInfiniteTurbo = false;
     private Vector3 TargetDriftAngle = Vector3.zero;
     private CheckpointActivator LastCheckpoint;

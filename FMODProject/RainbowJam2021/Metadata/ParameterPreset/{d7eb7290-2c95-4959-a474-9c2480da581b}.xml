@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{d7eb7290-2c95-4959-a474-9c2480da581b}">
+		<property name="name">
+			<value>Boosting</value>
+		</property>
+		<relationship name="folder">
+			<destination>{30b95a79-dab0-4b1b-aee4-038212298e12}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e128841a-ff1d-4077-8eae-48ad9a28fffa}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e128841a-ff1d-4077-8eae-48ad9a28fffa}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>1</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
