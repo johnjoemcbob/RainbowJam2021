@@ -17,4 +17,9 @@ public static class MathExt
     {
         return RemapRangeClamped(input, srcMin, srcMax, 0.0f, 1.0f);
     }
+
+    public static float LinearToDecibels(this float linear)
+    {
+        return Mathf.Clamp(Mathf.Log10(linear) * 20.0f, -80.0f, 0.0f);
+    }
 }
