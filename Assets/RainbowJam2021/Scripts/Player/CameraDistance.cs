@@ -23,6 +23,7 @@ public class CameraDistance : MonoBehaviour
 
     [Header( "References" )]
     public HoverVehicle Vehicle;
+    public Transform CameraLookAt;
     #endregion
 
     #region Variables - Public
@@ -32,12 +33,14 @@ public class CameraDistance : MonoBehaviour
 
 	#region Variables - Private
 	private Vector3 InitialPos;
+	private Vector3 InitialLookAtPos;
 	#endregion
 
 	#region MonoBehaviour
 	void Start()
     {
         InitialPos = transform.localPosition;
+        InitialLookAtPos = CameraLookAt.localPosition;
     }
 
     void FixedUpdate()
@@ -48,8 +51,9 @@ public class CameraDistance : MonoBehaviour
         // Look up/down when travelling in that direction for a better view
         float y = InitialPos.y - Vehicle.GetVelocity().y * YDampner;
 
-        // Y also affected by speed
-        y += Vehicle.GetSpeed().RemapClamped( YSpeedMin, YSpeedMax, YDistMin, YDistMax );
+        // LookAt Y also affected by speed
+        float lookAtY = InitialLookAtPos.y + Vehicle.GetSpeed().RemapClamped( YSpeedMin, YSpeedMax, YDistMin, YDistMax );
+        CameraLookAt.localPosition = new Vector3(InitialLookAtPos.x, lookAtY, InitialLookAtPos.z);
 
         // Lerp camera distance by speed
         float z = Vehicle.GetSpeed().RemapClamped( SpeedMin, SpeedMax, DistMin, DistMax );

@@ -17,6 +17,6 @@ public class VelocityCounter : MonoBehaviour
 
     void Update()
     {
-        VelocityText.text = "Velocity: " + rb.velocity.magnitude;
+        VelocityText.text = (rb.velocity.magnitude * 3.6f).ToString("F1") + "km/h";
     }
 }
