@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Runtime.InteropServices;
 
-class FMODSpectrumData : MonoBehaviour
+public class FMODSpectrumData : MonoBehaviour
 {
     private FMOD.DSP fft;
 
