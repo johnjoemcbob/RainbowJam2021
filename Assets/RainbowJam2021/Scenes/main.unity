@@ -248,6 +248,18 @@ PrefabInstance:
       propertyPath: YRespawnHeight
       value: -400
       objectReference: {fileID: 0}
+    - target: {fileID: 3160943961181606418, guid: 31ac306e5f8775e4e92467f96a2ea8a5, type: 3}
+      propertyPath: DriftBuildMultiplierMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160943961181606418, guid: 31ac306e5f8775e4e92467f96a2ea8a5, type: 3}
+      propertyPath: DriftBuildMultiplierSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160943961181606418, guid: 31ac306e5f8775e4e92467f96a2ea8a5, type: 3}
+      propertyPath: DriftBuildMultiplierInitial
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3160943962039364913, guid: 31ac306e5f8775e4e92467f96a2ea8a5, type: 3}
       propertyPath: m_RootOrder
       value: 1
