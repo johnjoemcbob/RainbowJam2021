@@ -36,12 +36,15 @@
 	</object>
 	<object class="PitchShifterEffect" id="{c8aee6df-2743-4b32-aff4-36f8087a10d2}">
 		<property name="pitch">
-			<value>1.04999995</value>
+			<value>0.859999955</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{72fef56e-7aee-4908-b345-291a8bc96890}">
 		<property name="filterTypeA">
 			<value>6</value>
+		</property>
+		<property name="frequencyA">
+			<value>380</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{34b7916a-6a56-4f3b-9ad8-f8d875a37613}" />

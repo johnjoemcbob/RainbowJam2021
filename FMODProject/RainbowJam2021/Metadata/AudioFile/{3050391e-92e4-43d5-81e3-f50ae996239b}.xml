@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{54325121-dab2-471d-9378-2cb2ac159788}">
+	<object class="AudioFile" id="{3050391e-92e4-43d5-81e3-f50ae996239b}">
 		<property name="assetPath">
-			<value>VO/red2_outtamyway.wav</value>
+			<value>VO/red_whaddya_mean_fuel_low.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>6.2461678004535148</value>
+			<value>8.3824036281179133</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{f46b2d3f-5759-4b3b-80c3-28db0e142b6c}</destination>
