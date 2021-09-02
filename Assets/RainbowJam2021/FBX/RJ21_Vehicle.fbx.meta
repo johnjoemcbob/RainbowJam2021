@@ -3,7 +3,22 @@ guid: ca2b748e2be2b403f9abf80ad63b72a2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boosters
+    second: {fileID: 2100000, guid: 5f457c2eabb734b0589df3f2edbfd603, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong1
+    second: {fileID: 2100000, guid: e041759e4a5274d8096946ce740892e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spoiler1
+    second: {fileID: 2100000, guid: 134d7339bf0374b71b228f9844479d2d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
