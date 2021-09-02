@@ -54,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 4927049589372400327, guid: c858f17606a6a114d84477ddcee52606, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -838976426841596073, guid: 3943261dbf609644fad9a95ca4cea7ad, type: 3}
+      objectReference: {fileID: 8418316618854452824, guid: 3943261dbf609644fad9a95ca4cea7ad, type: 3}
     - target: {fileID: 5233478186956459931, guid: c858f17606a6a114d84477ddcee52606, type: 3}
       propertyPath: m_Name
       value: TRACK_Incline2
