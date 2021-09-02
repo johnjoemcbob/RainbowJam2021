@@ -26,17 +26,17 @@
 	<object class="MixerBusPanner" id="{c2debd2a-f834-4372-8ddf-427980d487e5}" />
 	<object class="DistortionEffect" id="{22843fb9-85e9-4cb6-b64b-d63902bc7327}">
 		<property name="level">
-			<value>0.349999994</value>
+			<value>0.299999982</value>
 		</property>
 	</object>
 	<object class="ChorusEffect" id="{84a7deba-cfcf-46c0-a202-7c30b67fd53e}">
 		<property name="depth">
-			<value>56.5</value>
+			<value>49.5</value>
 		</property>
 	</object>
 	<object class="PitchShifterEffect" id="{374d92c2-a514-444a-8a35-c8ed5ec3e72d}">
 		<property name="pitch">
-			<value>1.22000003</value>
+			<value>1.17999995</value>
 		</property>
 		<property name="fftSize">
 			<value>940</value>
@@ -48,6 +48,12 @@
 	<object class="MultibandEqEffect" id="{e938d6b1-4407-4a7e-b850-966d65b91187}">
 		<property name="filterTypeA">
 			<value>6</value>
+		</property>
+		<property name="frequencyA">
+			<value>563.28064</value>
+		</property>
+		<property name="qualityA">
+			<value>0.665137947</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{0545beee-c6ee-43ef-a8b2-cfc6a7d619eb}" />
