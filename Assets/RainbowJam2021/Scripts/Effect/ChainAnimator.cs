@@ -14,6 +14,8 @@ public class ChainAnimator : MonoBehaviour
     Vector3 FinishPos;
     private float CurrentTime = 0;
 
+    public AnimationCurve animCurve;
+
     void Start()
     {
         CurrentTime = Random.Range( -10.0f, -5 );
@@ -44,7 +46,9 @@ public class ChainAnimator : MonoBehaviour
         CurrentTime += Time.deltaTime;
         CurrentTime = Mathf.Clamp( CurrentTime, 0, LerpTime );
 
-        transform.position = Vector3.Lerp( StartPos, FinishPos, CurrentTime / LerpTime );
+        float curve = animCurve.Evaluate(CurrentTime / LerpTime);
+
+        transform.position = Vector3.Lerp(StartPos, FinishPos, curve);// CurrentTime / LerpTime );
         transform.localEulerAngles += new Vector3( 0, 1, 0 ) * Time.deltaTime * LerpAngleSpeed;
     }
 }
