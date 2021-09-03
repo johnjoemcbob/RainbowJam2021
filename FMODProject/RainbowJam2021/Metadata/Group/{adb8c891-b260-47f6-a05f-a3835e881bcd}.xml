@@ -17,6 +17,7 @@
 	<object class="MixerBusEffectChain" id="{1958846a-2104-4ce9-ac47-8131b0765ff3}">
 		<relationship name="effects">
 			<destination>{e963ff1a-bbfb-48d9-bc15-eb86cc5f6ddc}</destination>
+			<destination>{7190b305-a83e-4dca-97b5-35374c14dba3}</destination>
 			<destination>{c88daebe-3400-4a73-b965-6060c5d73124}</destination>
 		</relationship>
 	</object>
@@ -35,6 +36,7 @@
 			<destination>{95dbeeb9-acc4-44db-ac6c-fa3eb704e499}</destination>
 		</relationship>
 	</object>
+	<object class="LimiterEffect" id="{7190b305-a83e-4dca-97b5-35374c14dba3}" />
 	<object class="MixerBusFader" id="{c88daebe-3400-4a73-b965-6060c5d73124}" />
 	<object class="Automator" id="{95dbeeb9-acc4-44db-ac6c-fa3eb704e499}">
 		<property name="nameOfPropertyBeingAutomated">

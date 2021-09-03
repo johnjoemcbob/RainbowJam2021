@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -130,8 +129,8 @@ public class HoverVehicle : MonoBehaviour
 		}
 
         // Input
-        InputTryDrift = Input.GetKey( KeyCode.LeftShift ) || Input.GetButton( "Fire1" );
-        InputTryBoost = Input.GetKey( KeyCode.Space ) || Input.GetButton( "Jump" );
+        InputTryDrift = Input.GetButton( "Drift" );
+        InputTryBoost = Input.GetButton( "Boost" );
     }
 
 	void FixedUpdate()

@@ -16,7 +16,6 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{2df74c0d-2850-4a4d-9ae3-31b35feec000}">
 		<relationship name="effects">
-			<destination>{d6cdb265-14ca-445b-a1ae-a1f1ac8a30a5}</destination>
 			<destination>{b577a315-e4b5-433a-bc95-95172db4e14d}</destination>
 			<destination>{48d98ffd-35e8-49d8-82d9-878ac4dc9fa6}</destination>
 			<destination>{650a2df8-06bf-4e36-a258-8983df7084c5}</destination>
@@ -25,14 +24,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2f54d93e-84ec-4911-b3c1-983b6e165616}" />
-	<object class="DistortionEffect" id="{d6cdb265-14ca-445b-a1ae-a1f1ac8a30a5}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
-		<property name="level">
-			<value>0.375</value>
-		</property>
-	</object>
 	<object class="ChorusEffect" id="{b577a315-e4b5-433a-bc95-95172db4e14d}">
 		<property name="rate">
 			<value>0.659999967</value>
@@ -54,7 +45,7 @@
 	</object>
 	<object class="SFXReverbEffect" id="{650a2df8-06bf-4e36-a258-8983df7084c5}">
 		<property name="decayTime">
-			<value>650</value>
+			<value>300</value>
 		</property>
 		<property name="earlyDelay">
 			<value>66</value>
@@ -69,10 +60,13 @@
 			<value>230</value>
 		</property>
 		<property name="wetLevel">
-			<value>-8</value>
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{79c8ff6d-9796-4d8a-a6a4-e9e3253bfe89}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="filterTypeA">
 			<value>6</value>
 		</property>
