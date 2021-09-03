@@ -45,6 +45,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8956923954062277916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291919716385406302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  parameter: current track
+  TriggerEvent: 3
+  value: 1
+--- !u!114 &1178098547006579391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8911819302892257422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  parameter: current track
+  TriggerEvent: 3
+  value: 2
 --- !u!1001 &158628699795539247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1163,7 +1195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 643887727866889417, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: m_Name
-      value: Checkpoint (8)
+      value: Checkpoint (8) - chains track start
       objectReference: {fileID: 0}
     - target: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: m_RootOrder
@@ -1284,6 +1316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+--- !u!1 &5291919716385406302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 643887727866889417, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+  m_PrefabInstance: {fileID: 4728533917914954135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5699360690640235120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
@@ -1656,7 +1693,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 643887727866889417, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: m_Name
-      value: Checkpoint (15)
+      value: Checkpoint (15) - planar track start
       objectReference: {fileID: 0}
     - target: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: m_RootOrder
@@ -1767,6 +1804,11 @@ PrefabInstance:
 --- !u!4 &9062855278474221472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+  m_PrefabInstance: {fileID: 8305385425705468999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8911819302892257422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 643887727866889417, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
   m_PrefabInstance: {fileID: 8305385425705468999}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8858544944180731183
