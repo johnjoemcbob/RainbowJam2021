@@ -21,7 +21,7 @@
 		<property name="enumerationLabels">
 			<value>vanta</value>
 			<value>chains</value>
-			<value>track3</value>
+			<value>planar</value>
 			<value>track4</value>
 		</property>
 		<property name="isGlobal">
