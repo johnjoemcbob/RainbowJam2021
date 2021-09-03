@@ -78,5 +78,10 @@ public class DialogueScene : MonoBehaviour
             voiceLineEvent.start();
             voiceLineEvent.release();
         }
+
+        if (timer <= 1.0f)
+        {
+            timer = 5.0f;
+        }
     }
 }

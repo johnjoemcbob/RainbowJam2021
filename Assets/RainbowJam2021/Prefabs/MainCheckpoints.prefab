@@ -105,6 +105,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: NoGhosts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: VisualOnly
       value: 1
       objectReference: {fileID: 0}
@@ -181,6 +185,51 @@ PrefabInstance:
     - target: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Actor
+      value: Gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Actor
+      value: Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Actor
+      value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Subtitle
+      value: Is this all?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Subtitle
+      value: Speed speed speed! Fly, my pretty! Eh? Did something just fall off?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Subtitle
+      value: "Outta my way, you damn ghosts! Anyone or a-ny-thing in my way is gettin\u2019
+        CRUSHED!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].VoiceLine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].VoiceLine
+      value: event:/VO/Green/green2_speedspeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].VoiceLine
+      value: event:/VO/Red/red2_outta_my_way
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: NoGhosts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: VisualOnly
@@ -261,6 +310,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: NoGhosts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: VisualOnly
       value: 1
       objectReference: {fileID: 0}
@@ -338,9 +391,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Actor
+      value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Actor
+      value: Gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Actor
+      value: Silver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Subtitle
+      value: The road really appeared... Just like the legend says...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Subtitle
+      value: This is the only challenge left for me in this world.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Subtitle
+      value: "Gold? It\u2019s like I\u2019m seeing a phantom of you... I won\u2019t
+        keep living in your shadow! I\u2019ll reach the surface, just like you did!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].VoiceLine
+      value: event:/VO/Blue/blue1_roadreallyappeared
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].VoiceLine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].VoiceLine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: NoGhosts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: VisualOnly
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
@@ -415,6 +513,52 @@ PrefabInstance:
     - target: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Actor
+      value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Actor
+      value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Actor
+      value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Subtitle
+      value: I said FIND something! Why are we out of fuel already?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Subtitle
+      value: "...no, I don\u2019t know how many miles to the gallon this gets! I
+        have a crew for that! Either find something or I\u2019ll throw YOU in the
+        tank!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Subtitle
+      value: "Hello? Hey! Come back! I\u2019m the champ, you hear me? The champ!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].VoiceLine
+      value: event:/VO/Red/red5_i_said_find_somethin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].VoiceLine
+      value: event:/VO/Red/red5_no_i_dont_know_miles_gallon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].VoiceLine
+      value: event:/VO/Red/red5_the_chaaaaamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: NoGhosts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: VisualOnly
@@ -494,6 +638,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Actor
+      value: Silver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Actor
+      value: Silver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Actor
+      value: Gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Subtitle
+      value: "Nothing used to matter except my films... When you\u2019re doing stunts,
+        it\u2019s not speed that matters, it\u2019s impact."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Subtitle
+      value: But then I saw you tearing through the streets, Gold...I had to be up
+        there with you. But you always left me in the dust... but not this time!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Subtitle
+      value: "I wonder if anyone will follow me. I\u2019d like to experience it someday...being
+        surpassed."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: NoGhosts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: VisualOnly
       value: 1
@@ -571,6 +750,53 @@ PrefabInstance:
     - target: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Actor
+      value: Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Actor
+      value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Actor
+      value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].Subtitle
+      value: "Ahh, gotta have a replacement around here... Oh! I could totally give
+        that a tune-up while I\u2019ve got the hood open\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].Subtitle
+      value: "Whaddaya MEAN, \u2018fuel low\u2019? I\u2019m the heavyweight champion!
+        The champ does not stall! Find something!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].Subtitle
+      value: So this is what the sky looks like below the clouds... Is life always
+        this beautiful down there?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].VoiceLine
+      value: event:/VO/Green/green3_replacement
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].VoiceLine
+      value: event:/VO/Red/red3_whaddya_mean_fuel_low
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].VoiceLine
+      value: event:/VO/Blue/blue3_sky_looks_like
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: NoGhosts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: VisualOnly

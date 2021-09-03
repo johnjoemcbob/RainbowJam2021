@@ -9,7 +9,7 @@ public class CheckpointActivator : MonoBehaviour
     public float FlagLerpSpeed = 5;
     public Vector3 FlagTarget;
     public bool LastCheckpoint = false;
-    public bool VisualOnly = false; // For testing/mockups
+    public bool NoGhosts = false; // For testing/mockups
 
     [Header( "References" )]
     public Transform Flag;
@@ -25,7 +25,7 @@ public class CheckpointActivator : MonoBehaviour
 	#region MonoBehaviour
 	private void Update()
 	{
-		if ( RemainingGhosts == 0 && !LastCheckpoint )
+		if ( !NoGhosts && RemainingGhosts == 0 && !LastCheckpoint )
 		{
             Reset();
             StartCoroutine( DelayedActivate( 3 ) );
@@ -43,14 +43,11 @@ public class CheckpointActivator : MonoBehaviour
         {
             Activate();
 
-            if ( !VisualOnly )
-            {
-                // Play dialogue (only the first time)
-                GetComponent<DialogueScene>().Activate();
+            // Play dialogue (only the first time)
+            GetComponent<DialogueScene>().Activate();
 
-                // Store player position in case of reset to checkpoint
-                FindObjectOfType<HoverVehicle>().StoreCheckpoint( this );
-            }
+            // Store player position in case of reset to checkpoint
+            FindObjectOfType<HoverVehicle>().StoreCheckpoint( this );
         }
     }
 
@@ -71,7 +68,7 @@ public class CheckpointActivator : MonoBehaviour
         GetComponent<Collider>().enabled = false;
         Activated = true;
 
-        if ( !VisualOnly )
+        if ( !NoGhosts )
         {
             // Play ghost paths
             Ghosts = new List<GameObject>();
@@ -98,12 +95,15 @@ public class CheckpointActivator : MonoBehaviour
 
     void RemoveGhosts()
 	{
-        foreach ( var ghost in Ghosts )
+        if ( !NoGhosts )
         {
-            Destroy( ghost );
+            foreach ( var ghost in Ghosts )
+            {
+                Destroy( ghost );
+            }
+            Ghosts.Clear();
+            RemainingGhosts = -1;
         }
-        Ghosts.Clear();
-        RemainingGhosts = -1;
     }
 
     IEnumerator DelayedActivate( float seconds )
