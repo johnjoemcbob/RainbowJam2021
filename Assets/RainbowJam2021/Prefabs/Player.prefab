@@ -1235,9 +1235,9 @@ MonoBehaviour:
   DriftTurnMultiplier: 0.5
   DriftBuildVelocity: 15
   DriftBuildAngular: 1
-  DriftBuildMultiplierInitial: 0.25
-  DriftBuildMultiplierSpeed: 0.5
-  DriftBuildMultiplierMax: 2
+  DriftBuildMultiplierInitial: 0.5
+  DriftBuildMultiplierSpeed: 1
+  DriftBuildMultiplierMax: 4
   DriftVisualTiltAngle: -1
   DriftTurboEpsilon: 0.01
   AngleLerpSpeed: 5
@@ -1248,7 +1248,10 @@ MonoBehaviour:
   NoVerticalInput: 1
   VerticalBoostInputDownMultiplier: 0
   VerticalBoostInputUpMultiplier: 0
-  YRespawnHeight: -300
+  YRespawnHeight: -7000
+  ExtraGravityHeight: 5
+  ExtraGravityTime: 1
+  ExtraGravityMultiplier: -100000
   Engines:
   - {fileID: 3160943961957422396}
   - {fileID: 3160943962443678260}

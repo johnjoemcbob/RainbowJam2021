@@ -32,6 +32,9 @@ public class HoverVehicle : MonoBehaviour
     public float VerticalBoostInputDownMultiplier = 0;
     public float VerticalBoostInputUpMultiplier = 0;
     public float YRespawnHeight = -60;
+    public float ExtraGravityHeight = 2;
+    public float ExtraGravityTime = 1;
+    public float ExtraGravityMultiplier = 1000;
 
     [Header( "References" )]
     public List<GameObject> Engines;
@@ -55,6 +58,8 @@ public class HoverVehicle : MonoBehaviour
 
     private bool Drifting = false;
     private float DriftBuildMultiplier = 0;
+    private float AirTime = 0;
+    private float ExtraGravityForce = 0;
     private bool InputTryDrift = false;
     private bool InputTryBoost = false;
     private bool DebugInfiniteTurbo = false;
@@ -148,6 +153,9 @@ public class HoverVehicle : MonoBehaviour
 
         // Drifting
         UpdateDrifting();
+
+        // Gravity
+        UpdateGravity();
     }
 
 	private void OnCollisionEnter( Collision collision )
@@ -433,6 +441,48 @@ public class HoverVehicle : MonoBehaviour
     {
         PunchMesh.PunchScale = TurboFinishPunch;
         PunchMesh.Punch();
+    }
+    #endregion
+
+    #region Gravity
+    void UpdateGravity()
+    {
+        float dist = ExtraGravityHeight;
+        Vector3 start = transform.position;
+        int layermask =~ LayerMask.GetMask( "Player" );
+        RaycastHit hit;
+        bool test = Physics.Raycast( start, Vector3.down, out hit, dist, layermask );
+        bool grav = false;
+        if ( test )
+        {
+            float y = hit.point.y - transform.position.y;
+            if ( y > dist / 2 ) // What
+            {
+                grav = true;
+            }
+        }
+		else
+		{
+            grav = true;
+		}
+
+        if ( grav )
+        {
+            // Count timer
+            // If counter above var then mult grav
+            AirTime += Time.deltaTime;
+            if ( AirTime >= ExtraGravityTime )
+            {
+                ExtraGravityForce += Time.deltaTime * ExtraGravityMultiplier;
+                rb.AddForce( Time.deltaTime * Vector3.up * ExtraGravityForce );
+            }
+        }
+		else
+        {
+            // Reset counter & force
+            AirTime = 0;
+            ExtraGravityForce = 0;
+        }
     }
     #endregion
 

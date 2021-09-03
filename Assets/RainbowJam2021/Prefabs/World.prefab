@@ -2556,9 +2556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4531ff2a79e8c8c4e9a70e7d5b874e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolModeInt: 1
+  toolModeInt: 0
   erosionTypeInt: 3
-  generatorTypeInt: 2
+  generatorTypeInt: 3
   isBrushOn: 0
   isBrushHidden: 0
   isBrushPainting: 0
@@ -2601,7 +2601,6 @@ MonoBehaviour:
   windSmoothing: 0.25
   terrainLayers:
   - {fileID: 8574412962073106934, guid: bcab50270dcacd24aa51d305b7346bd8, type: 2}
-  - {fileID: 8574412962073106934, guid: afd8cb26a13079346bc2b571cb4e48a6, type: 2}
   slopeBlendMinAngle: 10
   slopeBlendMaxAngle: 20
   heightBlendPoints: []
@@ -2617,8 +2616,8 @@ MonoBehaviour:
   perlinAmplitude: 0.5
   perlinOctaves: 9
   perlinBlend: 0.05
-  smoothBlend: 0.25
-  smoothIterations: 1
+  smoothBlend: 1
+  smoothIterations: 5
   normaliseMin: 0
   normaliseMax: 1
   normaliseBlend: 1
@@ -5439,7 +5438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6431869377344264157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -417.9, y: 171.7, z: 73.56}
+  m_LocalPosition: {x: -1061.27, y: 210.16, z: -24.8}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 2423598650115710255}
@@ -5522,7 +5521,7 @@ MonoBehaviour:
   CollisionTag: Player
   parameter: current track
   TriggerEvent: 3
-  value: 3
+  value: 2
 --- !u!1 &6456220405987647266
 GameObject:
   m_ObjectHideFlags: 0
@@ -6080,7 +6079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3893733850384845224
 Transform:
   m_ObjectHideFlags: 0
