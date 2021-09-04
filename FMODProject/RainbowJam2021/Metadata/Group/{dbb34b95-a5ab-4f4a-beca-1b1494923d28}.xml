@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
 	<object class="MixerGroup" id="{dbb34b95-a5ab-4f4a-beca-1b1494923d28}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<property name="name">
 			<value>Silver</value>
 		</property>
@@ -21,6 +24,7 @@
 			<destination>{0620e8ac-88dd-4473-a32b-b35fa53222c4}</destination>
 			<destination>{0a2501b6-814c-4216-b0af-367b918d76f9}</destination>
 			<destination>{d8a486fb-8aab-42e5-b837-7d467229f29f}</destination>
+			<destination>{167755ed-d7e6-41bc-bde7-08ca1ef47f01}</destination>
 			<destination>{c36830d0-271a-4ac8-b609-cc286cc09985}</destination>
 		</relationship>
 	</object>
@@ -51,6 +55,11 @@
 	<object class="MultibandEqEffect" id="{d8a486fb-8aab-42e5-b837-7d467229f29f}">
 		<property name="filterTypeA">
 			<value>6</value>
+		</property>
+	</object>
+	<object class="GainEffect" id="{167755ed-d7e6-41bc-bde7-08ca1ef47f01}">
+		<property name="gain">
+			<value>9.5</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{c36830d0-271a-4ac8-b609-cc286cc09985}" />

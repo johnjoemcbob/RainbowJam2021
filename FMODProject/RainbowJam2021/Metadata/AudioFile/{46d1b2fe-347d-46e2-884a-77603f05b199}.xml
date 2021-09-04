@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{a398c732-b798-4dd8-a039-ca2fbb819b35}">
+	<object class="AudioFile" id="{46d1b2fe-347d-46e2-884a-77603f05b199}">
 		<property name="assetPath">
-			<value>VO/gold2_isthisall.wav</value>
+			<value>VO/silver dialogue_08.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>1.2074376417233561</value>
+			<value>6.5281632653061221</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{f46b2d3f-5759-4b3b-80c3-28db0e142b6c}</destination>
