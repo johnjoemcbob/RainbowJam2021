@@ -283,6 +283,7 @@ Transform:
   - {fileID: 4134509654287376516}
   - {fileID: 2148765120286577268}
   - {fileID: 3462900022667903881}
+  - {fileID: 4450896322002483305}
   m_Father: {fileID: 3160943961181606419}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1086,6 +1087,7 @@ MonoBehaviour:
   - {fileID: 1932264494124859495}
   - {fileID: 4161518496585603293}
   TurboSoundEmitter: {fileID: 8032498702169403580}
+  HornSoundEmitter: {fileID: 5790638443108245220}
   DriftTurbo: 0
   Boosting: 0
   VisualEngineSpeedMultiplier: 0.001
@@ -2065,6 +2067,62 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 0
   OverrideMaxDistance: 30
+--- !u!1 &8238979884393446837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4450896322002483305}
+  - component: {fileID: 5790638443108245220}
+  m_Layer: 0
+  m_Name: Horn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4450896322002483305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238979884393446837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5033084943850703249}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5790638443108245220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238979884393446837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Ship/Horn
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: HornPressed
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &8917552590150828846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,19 +2286,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
---- !u!4 &8240169902241931890 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4701095297430270239, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
-  m_PrefabInstance: {fileID: 3704021156025193325}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4161518496585603293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 767860008407403440, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
   m_PrefabInstance: {fileID: 3704021156025193325}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3480055462605887857 stripped
+--- !u!4 &8240169902241931890 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 228829932927699484, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4701095297430270239, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
+  m_PrefabInstance: {fileID: 3704021156025193325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5151198612087419499 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8366536118733988102, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
   m_PrefabInstance: {fileID: 3704021156025193325}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1932264494124859495 stripped
@@ -2248,9 +2306,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3006042577792160522, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
   m_PrefabInstance: {fileID: 3704021156025193325}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5151198612087419499 stripped
+--- !u!4 &3480055462605887857 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8366536118733988102, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 228829932927699484, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
   m_PrefabInstance: {fileID: 3704021156025193325}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4201961034341342246
