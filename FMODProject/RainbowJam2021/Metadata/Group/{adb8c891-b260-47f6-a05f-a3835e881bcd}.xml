@@ -30,14 +30,24 @@
 		<property name="filterTypeA">
 			<value>2</value>
 		</property>
+		<property name="filterTypeB">
+			<value>6</value>
+		</property>
 		<property name="frequencyA">
 			<value>22000</value>
+		</property>
+		<property name="frequencyB">
+			<value>20</value>
 		</property>
 		<property name="qualityA">
 			<value>0.599999964</value>
 		</property>
+		<property name="qualityB">
+			<value>0.340000004</value>
+		</property>
 		<relationship name="automators">
 			<destination>{95dbeeb9-acc4-44db-ac6c-fa3eb704e499}</destination>
+			<destination>{1bf1a282-d501-4bfc-bd5f-ff52c8cd50bf}</destination>
 		</relationship>
 	</object>
 	<object class="LimiterEffect" id="{7190b305-a83e-4dca-97b5-35374c14dba3}" />
@@ -55,6 +65,14 @@
 			<destination>{09ae5898-6649-4046-ab31-49478627255b}</destination>
 		</relationship>
 	</object>
+	<object class="Automator" id="{1bf1a282-d501-4bfc-bd5f-ff52c8cd50bf}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>frequencyB</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{833941c1-73eb-4576-878d-2218439b63bb}</destination>
+		</relationship>
+	</object>
 	<object class="Automator" id="{b8433b84-5371-4021-8fd5-158321c444bf}">
 		<property name="nameOfPropertyBeingAutomated">
 			<value>gain</value>
@@ -70,6 +88,15 @@
 		<relationship name="automationPoints">
 			<destination>{ec002c0d-28ff-49a5-9e42-94713f12dd3b}</destination>
 			<destination>{edc3ed6c-9dc7-4bae-8916-8a6e6d99ed20}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{833941c1-73eb-4576-878d-2218439b63bb}">
+		<relationship name="parameter">
+			<destination>{b6d5b414-e5fd-45cd-972d-96b088406429}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{dfd68ecc-9358-4a43-86b5-8e116c9d388f}</destination>
+			<destination>{728831bb-3afe-474f-b1c2-e4cb623ece83}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{b188994e-32f2-4e06-a011-1282d5d02ac7}">
@@ -94,7 +121,23 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>5000</value>
+			<value>6000</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{dfd68ecc-9358-4a43-86b5-8e116c9d388f}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>20</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{728831bb-3afe-474f-b1c2-e4cb623ece83}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>1000</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{09c521fe-81f0-4a44-9423-558bd4f1c17f}">
