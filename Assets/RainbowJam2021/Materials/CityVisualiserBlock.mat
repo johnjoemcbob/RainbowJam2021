@@ -95,7 +95,7 @@ Material:
     - _OutlineWidth: 2
     - _Parallax: 0.02
     - _RimEnabled: 1
-    - _SelfShadingSize: 0.5
+    - _SelfShadingSize: 0.051
     - _SelfShadingSizeExtra: 0.6
     - _ShadowEdgeSize: 0.229
     - _ShadowEdgeSizeExtra: 0.05

@@ -115,5 +115,5 @@ MonoBehaviour:
   MaxScale: 20
   MinSpectralBandIndex: 0
   MaxSpectralBandIndex: 10
-  PinnedPos: 1
+  PinnedPos: 0
   LerpFactor: 0.1
