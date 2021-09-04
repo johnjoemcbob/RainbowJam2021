@@ -1082,9 +1082,16 @@ MonoBehaviour:
   Propulsion: {fileID: 3160943961047342573}
   BoostPropulsion: {fileID: 6423708496338197140}
   CenterMass: {fileID: 3160943962269512277}
+  VisualEngines:
+  - {fileID: 1932264494124859495}
+  - {fileID: 4161518496585603293}
   TurboSoundEmitter: {fileID: 8032498702169403580}
   DriftTurbo: 0
   Boosting: 0
+  VisualEngineSpeedMultiplier: 0.001
+  VisualEngineAngleMultiplier: 30
+  VisualEngineDriftMultiplier: 0.02
+  VisualEngineLerpSpeed: 5
 --- !u!54 &3160943961181606429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2224,6 +2231,16 @@ PrefabInstance:
 --- !u!4 &5151198612087419499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8366536118733988102, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
+  m_PrefabInstance: {fileID: 3704021156025193325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4161518496585603293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 767860008407403440, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
+  m_PrefabInstance: {fileID: 3704021156025193325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1932264494124859495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3006042577792160522, guid: 15a1ea7cdebbd46ecb60c343467003c2, type: 3}
   m_PrefabInstance: {fileID: 3704021156025193325}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4201961034341342246

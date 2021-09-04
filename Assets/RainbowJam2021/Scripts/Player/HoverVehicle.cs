@@ -41,6 +41,7 @@ public class HoverVehicle : MonoBehaviour
     public GameObject Propulsion;
     public GameObject BoostPropulsion;
     public GameObject CenterMass;
+    public GameObject[] VisualEngines;
 
     public FMODUnity.StudioEventEmitter TurboSoundEmitter;
     #endregion
@@ -67,6 +68,7 @@ public class HoverVehicle : MonoBehaviour
     private CheckpointActivator LastCheckpoint;
     private Vector3 LastCheckpointPos;
     private Vector3 LastCheckpointAng;
+    private Vector3[] VisualEngineInitialPos;
     #endregion
 
     #region MonoBehaviour
@@ -81,6 +83,15 @@ public class HoverVehicle : MonoBehaviour
         ToggleStabiliserVisualise();
 
         LastCheckpointPos = transform.position;
+
+        // Store initial visual engine positions
+        VisualEngineInitialPos = new Vector3[VisualEngines.Length];
+        int ind = 0;
+        foreach ( var engine in VisualEngines )
+		{
+            VisualEngineInitialPos[ind] = engine.transform.localPosition;
+            ind++;
+        }
     }
 
 	private void Update()
@@ -136,6 +147,8 @@ public class HoverVehicle : MonoBehaviour
         // Input
         InputTryDrift = Input.GetButton( "Drift" );
         InputTryBoost = Input.GetButton( "Boost" );
+
+        UpdateEngineVisuals();
     }
 
 	void FixedUpdate()
@@ -513,4 +526,34 @@ public class HoverVehicle : MonoBehaviour
         FindObjectOfType<CameraFollow>().Teleport();
 	}
     #endregion
+
+    #region Engine Visuals
+    public float VisualEngineSpeedMultiplier = 0.01f;
+    public float VisualEngineAngleMultiplier = 5;
+    public float VisualEngineDriftMultiplier = 5;
+    public float VisualEngineLerpSpeed = 5;
+    public void UpdateEngineVisuals()
+	{
+        int ind = 0;
+		foreach ( var engine in VisualEngines )
+		{
+            // If turning then face direction change
+            engine.transform.localRotation = Quaternion.Lerp( engine.transform.localRotation, Quaternion.Euler( new Vector3( 0, 1, 0 ) * Input.GetAxis( "Horizontal" ) * VisualEngineAngleMultiplier ), Time.deltaTime * VisualEngineLerpSpeed );
+
+            // Move forward/back with speed
+            Vector3 target = VisualEngineInitialPos[ind] + ( Vector3.forward * GetSpeed() * VisualEngineSpeedMultiplier );
+            // Drifting, move apart
+            if ( Drifting )
+            {
+                target += Vector3.right * ( ind == 0 ? -1 : 1 ) * VisualEngineDriftMultiplier;
+            }
+            engine.transform.localPosition = Vector3.Lerp( engine.transform.localPosition, target, Time.deltaTime * VisualEngineLerpSpeed );
+
+            // Up and down with terrain a bit?
+
+
+            ind++;
+		}
+	}
+	#endregion
 }
