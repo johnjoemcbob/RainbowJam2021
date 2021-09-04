@@ -66,12 +66,14 @@ public class CheckpointActivator : MonoBehaviour
     {
         Respawning = true;
         UIManager.SetFailureScreenActive(true);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Respawning", 1);
     }
 
     private void Reset()
     {
         Respawning = false;
         UIManager.SetFailureScreenActive(false);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Respawning", 0);
 
         // Delete old ghosts
         RemoveGhosts();
