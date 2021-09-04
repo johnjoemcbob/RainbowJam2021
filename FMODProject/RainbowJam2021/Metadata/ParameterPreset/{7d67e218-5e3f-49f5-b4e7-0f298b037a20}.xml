@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{7d67e218-5e3f-49f5-b4e7-0f298b037a20}">
+		<property name="name">
+			<value>Falling</value>
+		</property>
+		<relationship name="folder">
+			<destination>{30b95a79-dab0-4b1b-aee4-038212298e12}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{b6d5b414-e5fd-45cd-972d-96b088406429}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{b6d5b414-e5fd-45cd-972d-96b088406429}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.33000001311302185</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>2.5</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

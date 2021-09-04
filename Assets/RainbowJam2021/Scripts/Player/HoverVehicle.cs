@@ -476,12 +476,15 @@ public class HoverVehicle : MonoBehaviour
                 ExtraGravityForce += Time.deltaTime * ExtraGravityMultiplier;
                 rb.AddForce( Time.deltaTime * Vector3.up * ExtraGravityForce );
             }
+            
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Falling", 1);
         }
 		else
         {
             // Reset counter & force
             AirTime = 0;
             ExtraGravityForce = 0;
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Falling", 0);
         }
     }
     #endregion
