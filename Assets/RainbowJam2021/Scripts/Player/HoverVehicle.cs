@@ -44,6 +44,7 @@ public class HoverVehicle : MonoBehaviour
     public GameObject[] VisualEngines;
 
     public FMODUnity.StudioEventEmitter TurboSoundEmitter;
+    public FMODUnity.StudioEventEmitter HornSoundEmitter;
     #endregion
 
     #region Variables - Public
@@ -147,6 +148,13 @@ public class HoverVehicle : MonoBehaviour
         // Input
         InputTryDrift = Input.GetButton( "Drift" );
         InputTryBoost = Input.GetButton( "Boost" );
+
+        if(Input.GetButtonDown("Horn"))
+        {
+            HornSoundEmitter.Play();
+        }
+
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("HornPressed",Input.GetButton("Horn") ? 1 : 0);
 
         UpdateEngineVisuals();
     }
