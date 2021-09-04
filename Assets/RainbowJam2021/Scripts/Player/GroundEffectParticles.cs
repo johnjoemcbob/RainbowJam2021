@@ -5,6 +5,7 @@ public class GroundEffectParticles : MonoBehaviour
 {
     public HoverVehicle Vehicle;
     public Transform GroundParticles;
+    public Transform DustParticles;
     public Transform FrontBlastParticlesContainer;
     public Transform FrontSideBlastParticlesContainer;
     public Transform SideTrailsParticleContainer;
@@ -14,6 +15,7 @@ public class GroundEffectParticles : MonoBehaviour
     private ParticleSystem FrontBlastParticles;
     private ParticleSystem[] FrontSideBlastParticles;
     private ParticleSystem[] SideTrailsParticles;
+    private ParticleSystem DustParticleSystem;
 
     private Transform SideTrailLeft;
     private Transform SideTrailRight;
@@ -28,6 +30,7 @@ public class GroundEffectParticles : MonoBehaviour
         SideTrailsParticles = SideTrailsParticleContainer.GetComponentsInChildren<ParticleSystem>();
 
         GroundParticleSystem = GroundParticles.GetComponentInChildren<ParticleSystem>();
+        DustParticleSystem = DustParticles.GetComponentInChildren<ParticleSystem>();
 
         SideTrailLeft = SideTrailsParticleContainer.Find("Left");
         SideTrailRight = SideTrailsParticleContainer.Find("Right");
@@ -54,11 +57,21 @@ public class GroundEffectParticles : MonoBehaviour
         GroundParticles.rotation = Quaternion.LookRotation(rayHit.normal, Vector3.up) * Quaternion.Euler(90, 0, 0);
 
         float groundDistanceFade = 1.0f - rayHit.distance.RemapClamp01(1, 5);
+        float dustScaleFade = 1.0f - rayHit.distance.RemapClamp01(1, 4);
 
         var groundScale = GroundParticles.localScale;
         groundScale.x = 0.5f + groundDistanceFade;
         groundScale.z = 0.5f + groundDistanceFade;
         GroundParticles.localScale = groundScale;
+
+        if(rayHit.collider.gameObject.CompareTag("Terrain") && rayHit.distance < 5.0f)
+        {
+            DustParticleSystem.Play();
+        }
+        else
+        {
+            DustParticleSystem.Stop();
+        }
     }
 
     private void UpdateOverallBlastContainer()
