@@ -29,6 +29,18 @@ public class FMODLoader : MonoBehaviour
         }
     }
 
+    public void ButtonIntro()
+    {
+        foreach ( var button in Buttons )
+        {
+            button.SetActive( false );
+        }
+        FindObjectOfType<Text>().text = "Loading.";
+        SceneManager.LoadSceneAsync( 3, LoadSceneMode.Single );
+
+        RestartFMOD();
+    }
+
     public void ButtonPlay()
     {
         foreach ( var button in Buttons )
@@ -36,6 +48,9 @@ public class FMODLoader : MonoBehaviour
             button.SetActive( false );
         }
         FindObjectOfType<Text>().text = "Loading.";
+
+        GameObject.Instantiate(Resources.Load("MusicHolder") as GameObject);
+
         SceneManager.LoadSceneAsync( 1, LoadSceneMode.Single );
 
         RestartFMOD();

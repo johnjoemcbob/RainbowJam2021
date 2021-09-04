@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RainbowJam2021/Scenes/debug.unity
     guid: 2305e4c937a680347b6058c30942520e
+  - enabled: 1
+    path: Assets/RainbowJam2021/Scenes/intro.unity
+    guid: a552c1fe91a605f43afa746e36d703c8
   m_configObjects: {}

@@ -2628,7 +2628,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914590698350395957}
-  - component: {fileID: 4809764218695237665}
   m_Layer: 6
   m_Name: World
   m_TagString: Untagged
@@ -2661,29 +2660,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4809764218695237665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914590698350395956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Music/Driving Tracks
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &1914590698788880602
 GameObject:
   m_ObjectHideFlags: 0
@@ -14689,14 +14665,14 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5398635682805369027, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
---- !u!4 &8831504350753899886 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
-  m_PrefabInstance: {fileID: 8361175407333709449}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9000251173745644096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 643887727866889417, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+  m_PrefabInstance: {fileID: 8361175407333709449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8831504350753899886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
   m_PrefabInstance: {fileID: 8361175407333709449}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8458148694304549162
@@ -15146,13 +15122,13 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5398635682805369027, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
---- !u!4 &8192054500306358512 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
-  m_PrefabInstance: {fileID: 9166818637065863959}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8635819967851300830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 643887727866889417, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+  m_PrefabInstance: {fileID: 9166818637065863959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8192054500306358512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1046826129959900135, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
   m_PrefabInstance: {fileID: 9166818637065863959}
   m_PrefabAsset: {fileID: 0}

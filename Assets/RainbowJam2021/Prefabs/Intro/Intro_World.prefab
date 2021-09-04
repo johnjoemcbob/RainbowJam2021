@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1558966928697006237}
   - component: {fileID: 8337700329069528704}
-  - component: {fileID: 316952278678702325}
   m_Layer: 0
   m_Name: Intro_World
   m_TagString: Untagged
@@ -62,29 +61,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/VO/intro1
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
---- !u!114 &316952278678702325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3618462500459070102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Music/Driving Tracks
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1
