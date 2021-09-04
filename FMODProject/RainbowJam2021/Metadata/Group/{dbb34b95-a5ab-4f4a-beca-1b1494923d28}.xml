@@ -17,11 +17,13 @@
 	<object class="MixerBusEffectChain" id="{5bb90838-ef0d-48ef-a8d1-cfe5657644cd}">
 		<relationship name="effects">
 			<destination>{167755ed-d7e6-41bc-bde7-08ca1ef47f01}</destination>
+			<destination>{f34fe68a-6eb5-4fb8-9080-5096f0ccd291}</destination>
 			<destination>{d8a486fb-8aab-42e5-b837-7d467229f29f}</destination>
 			<destination>{eef66c3f-8dd9-4db2-ba23-10ae7fe09297}</destination>
 			<destination>{9d2021be-df4c-428b-91f7-e76c64996ba5}</destination>
 			<destination>{0620e8ac-88dd-4473-a32b-b35fa53222c4}</destination>
 			<destination>{0a2501b6-814c-4216-b0af-367b918d76f9}</destination>
+			<destination>{2a94f470-d325-4ef1-8884-ec8fec234659}</destination>
 			<destination>{c36830d0-271a-4ac8-b609-cc286cc09985}</destination>
 		</relationship>
 	</object>
@@ -29,6 +31,11 @@
 	<object class="GainEffect" id="{167755ed-d7e6-41bc-bde7-08ca1ef47f01}">
 		<property name="gain">
 			<value>10</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{f34fe68a-6eb5-4fb8-9080-5096f0ccd291}">
+		<property name="ratio">
+			<value>1</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{d8a486fb-8aab-42e5-b837-7d467229f29f}">
@@ -65,8 +72,11 @@
 	</object>
 	<object class="DistortionEffect" id="{eef66c3f-8dd9-4db2-ba23-10ae7fe09297}" />
 	<object class="ChorusEffect" id="{9d2021be-df4c-428b-91f7-e76c64996ba5}">
+		<property name="rate">
+			<value>0.75</value>
+		</property>
 		<property name="depth">
-			<value>40</value>
+			<value>39.5</value>
 		</property>
 	</object>
 	<object class="PitchShifterEffect" id="{0620e8ac-88dd-4473-a32b-b35fa53222c4}">
@@ -76,10 +86,24 @@
 	</object>
 	<object class="SFXReverbEffect" id="{0a2501b6-814c-4216-b0af-367b918d76f9}">
 		<property name="decayTime">
-			<value>280</value>
+			<value>100</value>
+		</property>
+		<property name="diffusion">
+			<value>49.5</value>
 		</property>
 		<property name="lowShelfFrequency">
 			<value>78</value>
+		</property>
+		<property name="wetLevel">
+			<value>-13</value>
+		</property>
+		<property name="dryLevel">
+			<value>1</value>
+		</property>
+	</object>
+	<object class="LimiterEffect" id="{2a94f470-d325-4ef1-8884-ec8fec234659}">
+		<property name="boost">
+			<value>2</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{c36830d0-271a-4ac8-b609-cc286cc09985}" />

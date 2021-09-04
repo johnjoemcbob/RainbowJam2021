@@ -27,7 +27,7 @@
 	<object class="MixerBusPanner" id="{09ed64f5-7316-4d17-b420-0ae3994777b8}" />
 	<object class="GainEffect" id="{5b39ae41-e2bb-4e3a-969c-2a9720b8158e}">
 		<property name="gain">
-			<value>-5</value>
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="DistortionEffect" id="{19e00a5c-b825-4566-a890-9fb4561da849}">

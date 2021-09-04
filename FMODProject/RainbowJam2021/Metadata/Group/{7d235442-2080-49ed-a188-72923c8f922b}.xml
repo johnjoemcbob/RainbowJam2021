@@ -43,6 +43,9 @@
 		<property name="ratio">
 			<value>10</value>
 		</property>
+		<property name="attackTime">
+			<value>1</value>
+		</property>
 		<property name="gain">
 			<value>5</value>
 		</property>

@@ -36,6 +36,8 @@ public class DialogueScene : MonoBehaviour
         {
             if (lineNumber >= DialogueLines.Length)
             {
+                // Stop ducking audio
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("VO Ducking", 0);
                 UIManager.SetDialogueBoxActive(false);
             }
             else
@@ -69,6 +71,9 @@ public class DialogueScene : MonoBehaviour
         // Play the audio!
         if ( line.VoiceLine != "" )
         {
+            // Duck other audio
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("VO Ducking", 1);
+
             var voiceLineEvent = FMODUnity.RuntimeManager.CreateInstance(line.VoiceLine);
             voiceLineEvent.getDescription(out var voiceLineDescription);
             voiceLineDescription.getLength(out var voiceLineLengthMs);
