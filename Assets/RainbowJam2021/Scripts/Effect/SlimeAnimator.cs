@@ -20,8 +20,8 @@ public class SlimeAnimator : Punchable
         {
             GlobWobbleIntensity -= Time.deltaTime;
         
-            var globWobbler = 2.0f + ((Mathf.Sin(Time.timeSinceLevelLoad * 18.0f) * 0.5f) * GlobWobbleIntensity);
-            var globWobblerB = 2.0f - ((Mathf.Sin(Time.timeSinceLevelLoad * 18.0f) * 0.5f) * GlobWobbleIntensity);
+            var globWobbler = 1.0f + ((Mathf.Sin(Time.timeSinceLevelLoad * 18.0f) * 0.5f) * GlobWobbleIntensity);
+            var globWobblerB = 1.0f - ((Mathf.Sin(Time.timeSinceLevelLoad * 18.0f) * 0.5f) * GlobWobbleIntensity);
 
             var globScale = SphereBlob.localScale;
             globScale.x = globWobbler;
