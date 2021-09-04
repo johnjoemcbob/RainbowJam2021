@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[2].VoiceLine
-      value: 
+      value: event:/VO/Silver/silver dialogue_04
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: NoGhosts
@@ -431,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[2].VoiceLine
-      value: 
+      value: event:/VO/Silver/silver dialogue_06
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: NoGhosts
@@ -547,11 +547,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[0].VoiceLine
-      value: 
+      value: event:/VO/Gold/gold dialogue_05
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].VoiceLine
-      value: 
+      value: event:/VO/Silver/silver dialogue_05
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[2].VoiceLine
@@ -670,7 +670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[0].VoiceLine
-      value: 
+      value: event:/VO/Gold/gold dialogue_02
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].VoiceLine
@@ -800,7 +800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[2].VoiceLine
-      value: 
+      value: event:/VO/Gold/gold dialogue_04
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: NoGhosts
@@ -919,11 +919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].VoiceLine
-      value: 
+      value: event:/VO/Gold/gold dialogue_01
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[2].VoiceLine
-      value: 
+      value: event:/VO/Silver/silver dialogue_01
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: NoGhosts
@@ -1041,11 +1041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].VoiceLine
-      value: 
+      value: event:/VO/Gold/gold dialogue_06
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[2].VoiceLine
-      value: 
+      value: event:/VO/Silver/silver dialogue_07
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: NoGhosts
@@ -1423,7 +1423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[0].VoiceLine
-      value: 
+      value: event:/VO/Gold/gold dialogue_07
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].VoiceLine
@@ -1668,6 +1668,18 @@ PrefabInstance:
       propertyPath: DialogueLines.Array.data[2].Subtitle
       value: "I wonder if anyone will follow me. I\u2019d like to experience it someday...being
         surpassed."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[0].VoiceLine
+      value: event:/VO/Silver/silver dialogue_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[1].VoiceLine
+      value: event:/VO/Silver/silver dialogue_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: DialogueLines.Array.data[2].VoiceLine
+      value: event:/VO/Gold/gold dialogue_03
       objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: NoGhosts

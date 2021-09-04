@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
 	<object class="MixerGroup" id="{0eb7769a-bd9d-4020-a709-59841b0975c6}">
-		<property name="volume">
-			<value>10</value>
-		</property>
 		<property name="name">
 			<value>Gold</value>
 		</property>
@@ -19,6 +16,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{2fea61fe-1f46-43e8-8f4c-4ec0e51a1331}">
 		<relationship name="effects">
+			<destination>{55a5b86f-842e-44a8-8c9c-6040953a48f9}</destination>
 			<destination>{85f17fbf-948d-461c-9ad6-d48787392bbf}</destination>
 			<destination>{6fe18517-b9cd-4ca8-9911-50fc30e6a818}</destination>
 			<destination>{3b473c30-9627-470b-b5d8-5beb9dacf700}</destination>
@@ -28,9 +26,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{1d2abb33-9fa1-4d53-a2e6-a3a829529ba0}" />
+	<object class="GainEffect" id="{55a5b86f-842e-44a8-8c9c-6040953a48f9}">
+		<property name="gain">
+			<value>10</value>
+		</property>
+	</object>
 	<object class="DistortionEffect" id="{85f17fbf-948d-461c-9ad6-d48787392bbf}">
 		<property name="level">
-			<value>0.354999989</value>
+			<value>0.359999985</value>
 		</property>
 	</object>
 	<object class="ChorusEffect" id="{6fe18517-b9cd-4ca8-9911-50fc30e6a818}">
@@ -50,7 +53,7 @@
 	</object>
 	<object class="GainEffect" id="{ae944670-6c1d-4927-a4ce-242bf7dd3103}">
 		<property name="gain">
-			<value>5.5</value>
+			<value>5</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{e7cb4082-6eeb-4d3a-b7ac-10f8e74687ea}" />
