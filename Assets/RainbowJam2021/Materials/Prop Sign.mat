@@ -93,9 +93,9 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RimEnabled: 1
-    - _SelfShadingSize: 0.67
+    - _SelfShadingSize: 0.494
     - _SelfShadingSizeExtra: 0.6
-    - _ShadowEdgeSize: 0
+    - _ShadowEdgeSize: 0.115
     - _ShadowEdgeSizeExtra: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 1
