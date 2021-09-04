@@ -525,8 +525,11 @@ public class HoverVehicle : MonoBehaviour
 
     public void ResetToCheckpoint()
 	{
-        transform.position = LastCheckpointPos;
-        transform.eulerAngles = LastCheckpointAng;
+        //transform.position = LastCheckpointPos;
+        //transform.eulerAngles = LastCheckpointAng;
+
+        transform.position = LastCheckpoint.SpawnPoint.position;
+        transform.eulerAngles = LastCheckpoint.SpawnPoint.eulerAngles;
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

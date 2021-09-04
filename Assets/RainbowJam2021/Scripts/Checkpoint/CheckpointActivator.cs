@@ -13,6 +13,7 @@ public class CheckpointActivator : MonoBehaviour
 
     [Header( "References" )]
     public Transform Flag;
+    public Transform SpawnPoint;
 	#endregion
 
 	#region Variables - Private

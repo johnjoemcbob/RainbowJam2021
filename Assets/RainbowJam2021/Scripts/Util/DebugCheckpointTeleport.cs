@@ -25,6 +25,6 @@ public class DebugCheckpointTeleport : MonoBehaviour
 	public void ButtonPress( int checkpoint )
 	{
 		// Find the checkpoint in the scene
-		FindObjectOfType<HoverVehicle>().transform.position = GameObject.Find( "Main Checkpoints" ).transform.GetChild( checkpoint ).position + Vector3.up * 100;
+		FindObjectOfType<HoverVehicle>().transform.position = GameObject.Find( "Main Checkpoints" ).transform.GetChild( checkpoint ).GetComponent<CheckpointActivator>().SpawnPoint.position;
 	}
 }
