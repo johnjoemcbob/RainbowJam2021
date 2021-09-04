@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Terrain
   m_Shader: {fileID: 4800000, guid: fea9ee138d4a84d90a0c3f187fb3cd8a, type: 3}
-  m_ShaderKeywords: DR_GRADIENT_ON _CELPRIMARYMODE_SINGLE _UNITYSHADOWMODE_NONE
+  m_ShaderKeywords: _CELPRIMARYMODE_SINGLE _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -84,7 +84,7 @@ Material:
     - _GradientAngle: 0
     - _GradientCenterX: 0
     - _GradientCenterY: 0
-    - _GradientEnabled: 1
+    - _GradientEnabled: 0
     - _GradientSize: 70
     - _LightContribution: 0
     - _Metallic: 0
