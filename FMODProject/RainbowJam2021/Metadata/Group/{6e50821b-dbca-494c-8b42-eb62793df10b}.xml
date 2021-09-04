@@ -26,15 +26,15 @@
 	<object class="MixerBusPanner" id="{2f54d93e-84ec-4911-b3c1-983b6e165616}" />
 	<object class="ChorusEffect" id="{b577a315-e4b5-433a-bc95-95172db4e14d}">
 		<property name="rate">
-			<value>0.659999967</value>
+			<value>0.939999998</value>
 		</property>
 		<property name="depth">
-			<value>38.5</value>
+			<value>65.5</value>
 		</property>
 	</object>
 	<object class="PitchShifterEffect" id="{48d98ffd-35e8-49d8-82d9-878ac4dc9fa6}">
 		<property name="pitch">
-			<value>0.810000002</value>
+			<value>0.849999964</value>
 		</property>
 		<property name="fftSize">
 			<value>940</value>
@@ -44,37 +44,43 @@
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{650a2df8-06bf-4e36-a258-8983df7084c5}">
-		<property name="decayTime">
+		<property name="earlyDelay">
 			<value>300</value>
 		</property>
-		<property name="earlyDelay">
-			<value>66</value>
-		</property>
 		<property name="lateDelay">
-			<value>81</value>
+			<value>100</value>
 		</property>
 		<property name="HFDecayRatio">
-			<value>84</value>
+			<value>21</value>
 		</property>
-		<property name="lowShelfFrequency">
-			<value>230</value>
+		<property name="diffusion">
+			<value>27</value>
+		</property>
+		<property name="highCut">
+			<value>1220</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>16</value>
 		</property>
 		<property name="wetLevel">
-			<value>-10</value>
+			<value>-24</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{79c8ff6d-9796-4d8a-a6a4-e9e3253bfe89}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
-		<property name="filterTypeA">
-			<value>6</value>
+		<property name="filterTypeB">
+			<value>5</value>
 		</property>
 		<property name="frequencyA">
-			<value>44.9721985</value>
+			<value>6910.46582</value>
+		</property>
+		<property name="frequencyB">
+			<value>143.497208</value>
 		</property>
 		<property name="qualityA">
-			<value>2.9310348</value>
+			<value>0.840758622</value>
+		</property>
+		<property name="qualityB">
+			<value>0.539551735</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{989e1dd6-20b0-4466-a958-d06de450b581}" />
