@@ -20,21 +20,32 @@ public class CheckpointActivator : MonoBehaviour
 
     private int RemainingGhosts = -1;
     private bool Activated = false;
+    private bool Respawning = false;
+    private UIManager UIManager;
 	#endregion
 
 	#region MonoBehaviour
+    public void Start()
+    {
+        UIManager = GameObject.FindObjectOfType<UIManager>();
+    }
+
 	private void Update()
 	{
-		if ( !NoGhosts && RemainingGhosts == 0 && !LastCheckpoint )
+		if ( !Respawning && !NoGhosts && RemainingGhosts == 0 && !LastCheckpoint )
 		{
-            Reset();
-            StartCoroutine( DelayedActivate( 3 ) );
+            ShowFailureScreen();
 		}
 
         if ( Activated )
 		{
             Flag.localPosition = Vector3.Lerp( Flag.localPosition, FlagTarget, Time.deltaTime * FlagLerpSpeed );
 		}
+
+        if ( Respawning && Input.GetButton( "Boost" ) )
+        {
+            Reset();
+        }
 	}
 
 	public void OnTriggerEnter( Collider other )
@@ -51,13 +62,25 @@ public class CheckpointActivator : MonoBehaviour
         }
     }
 
+    private void ShowFailureScreen()
+    {
+        Respawning = true;
+        UIManager.SetFailureScreenActive(true);
+    }
+
     private void Reset()
     {
+        Respawning = false;
+        UIManager.SetFailureScreenActive(false);
+
         // Delete old ghosts
         RemoveGhosts();
 
         // Reset player position
         FindObjectOfType<HoverVehicle>().ResetToCheckpoint();
+
+        // Start again, delayed
+        StartCoroutine( DelayedActivate( 3 ) );
     }
     #endregion
 
