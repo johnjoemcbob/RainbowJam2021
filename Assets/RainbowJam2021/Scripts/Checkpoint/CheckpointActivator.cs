@@ -123,11 +123,14 @@ public class CheckpointActivator : MonoBehaviour
 	{
         if ( !NoGhosts )
         {
-            foreach ( var ghost in Ghosts )
+            if ( Ghosts != null )
             {
-                Destroy( ghost );
+                foreach ( var ghost in Ghosts )
+                {
+                    Destroy( ghost );
+                }
+                Ghosts.Clear();
             }
-            Ghosts.Clear();
             RemainingGhosts = -1;
         }
     }

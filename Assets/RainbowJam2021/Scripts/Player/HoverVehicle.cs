@@ -1,9 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class HoverVehicle : MonoBehaviour
 {
+    public const bool DEBUG = true;
+
     #region Variables - Inspector
     [Header( "Variables" )]
     public float ThrustForce = 400;
@@ -35,6 +38,7 @@ public class HoverVehicle : MonoBehaviour
     public float ExtraGravityHeight = 2;
     public float ExtraGravityTime = 1;
     public float ExtraGravityMultiplier = 1000;
+    public Vector3 RespawnAngleOffset;
 
     [Header( "References" )]
     public List<GameObject> Engines;
@@ -70,6 +74,7 @@ public class HoverVehicle : MonoBehaviour
     private Vector3 LastCheckpointPos;
     private Vector3 LastCheckpointAng;
     private Vector3[] VisualEngineInitialPos;
+    private float JustRespawned = 0;
     #endregion
 
     #region MonoBehaviour
@@ -97,53 +102,56 @@ public class HoverVehicle : MonoBehaviour
 
 	private void Update()
 	{
-        // Debug reset
-		if ( Input.GetKeyDown( KeyCode.R ) )
-		{
-            Respawn();
-		}
-
-        // Debug visualise engines
-        if ( Input.GetKeyDown( KeyCode.Alpha1 ) )
-		{
-            ToggleEngineVisualise();
-		}
-
-        // Debug visualise stabilisers
-        if ( Input.GetKeyDown( KeyCode.Alpha2 ) )
+        if ( DEBUG )
         {
-            ToggleStabiliserVisualise();
+            // Debug reset
+            if ( Input.GetKeyDown( KeyCode.R ) )
+            {
+                Respawn();
+            }
+
+            // Debug visualise engines
+            if ( Input.GetKeyDown( KeyCode.Alpha1 ) )
+            {
+                ToggleEngineVisualise();
+            }
+
+            // Debug visualise stabilisers
+            if ( Input.GetKeyDown( KeyCode.Alpha2 ) )
+            {
+                ToggleStabiliserVisualise();
+            }
+
+            // Debug stabilisers
+            if ( Input.GetKeyDown( KeyCode.Alpha3 ) )
+            {
+                ToggleStabilisers();
+            }
+
+            // Debug ghosts
+            if ( Input.GetKeyDown( KeyCode.Alpha4 ) )
+            {
+                FindObjectOfType<GhostRecorder>().Export();
+            }
+
+            // Debug infinite turbo
+            if ( Input.GetKeyDown( KeyCode.Alpha5 ) )
+            {
+                DebugInfiniteTurbo = !DebugInfiniteTurbo;
+            }
+
+            // Debug return to menu
+            if ( Input.GetKeyDown( KeyCode.Alpha0 ) )
+            {
+                SceneManager.LoadScene( 0, LoadSceneMode.Single );
+            }
         }
 
-        // Debug stabilisers
-        if ( Input.GetKeyDown( KeyCode.Alpha3 ) )
-        {
-            ToggleStabilisers();
-        }
-
-        // Debug ghosts
-        if ( Input.GetKeyDown( KeyCode.Alpha4 ) )
-		{
-            FindObjectOfType<GhostRecorder>().Export();
-		}
-
-        // Debug infinite turbo
-        if ( Input.GetKeyDown( KeyCode.Alpha5 ) )
-        {
-            DebugInfiniteTurbo = !DebugInfiniteTurbo;
-        }
-
-        // Debug return to menu
-        if ( Input.GetKeyDown( KeyCode.Alpha0 ) )
-        {
-            SceneManager.LoadScene( 0, LoadSceneMode.Single );
-        }
-
-        // Debug respawn
+        // Respawn if fall!
         if ( transform.localPosition.y < YRespawnHeight )
-		{
+        {
             Respawn();
-		}
+        }
 
         // Input
         InputTryDrift = Input.GetButton( "Drift" );
@@ -161,22 +169,29 @@ public class HoverVehicle : MonoBehaviour
 
 	void FixedUpdate()
     {
-        UpdateVehiclePhysics();
+        if ( JustRespawned <= 0 )
+        {
+            UpdateVehiclePhysics();
 
-        // Debug turbo
-        if ( DebugInfiniteTurbo )
+            // Debug turbo
+            if ( DebugInfiniteTurbo )
+            {
+                DriftTurbo = 1;
+            }
+
+            // Boost Input
+            UpdateBoosting();
+
+            // Drifting
+            UpdateDrifting();
+
+            // Gravity
+            UpdateGravity();
+        }
+		else
 		{
-            DriftTurbo = 1;
-		}
-
-        // Boost Input
-        UpdateBoosting();
-
-        // Drifting
-        UpdateDrifting();
-
-        // Gravity
-        UpdateGravity();
+            JustRespawned -= Time.deltaTime;
+        }
     }
 
 	private void OnCollisionEnter( Collision collision )
@@ -528,8 +543,11 @@ public class HoverVehicle : MonoBehaviour
         //transform.position = LastCheckpointPos;
         //transform.eulerAngles = LastCheckpointAng;
 
+        // Stop physics logic for a second to reset position+angles
+        JustRespawned = 1;
+
         transform.position = LastCheckpoint.SpawnPoint.position;
-        transform.eulerAngles = LastCheckpoint.SpawnPoint.eulerAngles;
+        transform.eulerAngles = LastCheckpoint.SpawnPoint.eulerAngles + RespawnAngleOffset;
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

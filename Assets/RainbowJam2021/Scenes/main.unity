@@ -244,6 +244,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3160943961181606418, guid: 31ac306e5f8775e4e92467f96a2ea8a5, type: 3}
+      propertyPath: RespawnAngleOffset.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 3160943962039364913, guid: 31ac306e5f8775e4e92467f96a2ea8a5, type: 3}
       propertyPath: m_RootOrder
       value: 1
