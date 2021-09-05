@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5187779108075480759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292542451324381866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  parameter: current track
+  TriggerEvent: 3
+  value: 3
 --- !u!1 &6957016669045973570
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f46abab303aaa418479ec13fac8af0, type: 3}
+--- !u!1 &2292542451324381866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 642596781889471770, guid: 51f46abab303aaa418479ec13fac8af0, type: 3}
+  m_PrefabInstance: {fileID: 1673730926269804464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2384928035045571626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3900889141615219610, guid: 51f46abab303aaa418479ec13fac8af0, type: 3}
