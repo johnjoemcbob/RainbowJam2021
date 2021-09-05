@@ -68,6 +68,7 @@ public class CheckpointActivator : MonoBehaviour
         Respawning = true;
         UIManager.SetFailureScreenActive(true);
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Respawning", 1);
+        FindObjectOfType<HoverVehicle>().ToggleRespawning( true );
     }
 
     private void Reset()
@@ -75,6 +76,7 @@ public class CheckpointActivator : MonoBehaviour
         Respawning = false;
         UIManager.SetFailureScreenActive(false);
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Respawning", 0);
+        FindObjectOfType<HoverVehicle>().ToggleRespawning( false );
 
         // Delete old ghosts
         RemoveGhosts();

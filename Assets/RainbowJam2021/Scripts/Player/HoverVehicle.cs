@@ -75,6 +75,7 @@ public class HoverVehicle : MonoBehaviour
     private Vector3 LastCheckpointAng;
     private Vector3[] VisualEngineInitialPos;
     private float JustRespawned = 0;
+    private bool Respawning = false;
     #endregion
 
     #region MonoBehaviour
@@ -169,7 +170,7 @@ public class HoverVehicle : MonoBehaviour
 
 	void FixedUpdate()
     {
-        if ( JustRespawned <= 0 )
+        if ( !Respawning && JustRespawned <= 0 )
         {
             UpdateVehiclePhysics();
 
@@ -276,6 +277,11 @@ public class HoverVehicle : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
+
+    public void ToggleRespawning( bool respawn )
+	{
+        Respawning = respawn;
+	}
     #endregion
 
     #region Drifting
@@ -526,9 +532,9 @@ public class HoverVehicle : MonoBehaviour
     #endregion
 
     #region Checkpoint
-    public void StoreCheckpoint( CheckpointActivator checkpoint )
+    public void StoreCheckpoint( CheckpointActivator checkpoint, bool real = true )
 	{
-        if ( LastCheckpoint )
+        if ( LastCheckpoint && LastCheckpoint != checkpoint && real )
 		{
             LastCheckpoint.ReachedNext();
         }
