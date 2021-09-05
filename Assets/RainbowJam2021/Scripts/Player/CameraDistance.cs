@@ -61,7 +61,11 @@ public class CameraDistance : MonoBehaviour
 
         // Lerp camera fov by speed
         float fov = Vehicle.GetSpeed().RemapClamped( FOVSpeedMin, FOVSpeedMax, FOVMin, FOVMax );
-        Camera.main.fieldOfView = Mathf.Lerp( Camera.main.fieldOfView, fov, Time.deltaTime * FOVLerp );
+
+        if(Camera.main != null) // Nullref check because I steal the camera for the credits. >:)
+        {
+            Camera.main.fieldOfView = Mathf.Lerp( Camera.main.fieldOfView, fov, Time.deltaTime * FOVLerp );
+        }
     }
 	#endregion
 }

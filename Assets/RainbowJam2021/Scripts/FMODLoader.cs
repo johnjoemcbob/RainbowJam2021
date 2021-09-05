@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class FMODLoader : MonoBehaviour
@@ -9,6 +6,7 @@ public class FMODLoader : MonoBehaviour
     public GameObject[] Buttons;
 
     bool audioResumed = false;
+    private FMOD.Studio.EventInstance menuMusic;
 
     void Start()
     {
@@ -20,12 +18,15 @@ public class FMODLoader : MonoBehaviour
 
     void Update()
     {
-        if ( FMODUnity.RuntimeManager.HasBankLoaded( "Master" ) && !Buttons[0].activeSelf )
+        if ( !audioResumed && !Buttons[0].activeSelf && FMODUnity.RuntimeManager.HasBankLoaded( "Master" ) )
         {
 			foreach ( var button in Buttons )
             {
                 button.SetActive( true );
             }
+
+            menuMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Menu Track");
+            menuMusic.start();
         }
     }
 
@@ -35,7 +36,7 @@ public class FMODLoader : MonoBehaviour
         {
             button.SetActive( false );
         }
-        FindObjectOfType<Text>().text = "Loading.";
+
         SceneManager.LoadSceneAsync( 3, LoadSceneMode.Single );
 
         RestartFMOD();
@@ -47,7 +48,6 @@ public class FMODLoader : MonoBehaviour
         {
             button.SetActive( false );
         }
-        FindObjectOfType<Text>().text = "Loading.";
 
         GameObject.Instantiate(Resources.Load("MusicHolder") as GameObject);
 
@@ -62,7 +62,7 @@ public class FMODLoader : MonoBehaviour
         {
             button.SetActive( false );
         }
-        FindObjectOfType<Text>().text = "Loading.";
+
         SceneManager.LoadSceneAsync( 2, LoadSceneMode.Single );
 
         RestartFMOD();
@@ -70,6 +70,9 @@ public class FMODLoader : MonoBehaviour
 
     void RestartFMOD()
     {
+        menuMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        menuMusic.release();
+
         if ( !audioResumed )
         {
             var result = FMODUnity.RuntimeManager.CoreSystem.mixerSuspend();
