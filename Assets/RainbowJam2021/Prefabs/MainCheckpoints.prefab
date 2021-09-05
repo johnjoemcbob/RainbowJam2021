@@ -444,6 +444,18 @@ PrefabInstance:
       propertyPath: DialogueLines.Array.data[2].VoiceLine
       value: event:/VO/Silver/silver dialogue_06
       objectReference: {fileID: 0}
+    - target: {fileID: 5982167269858279475, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 59.294724
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982167269858279475, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982167269858279475, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.082
+      objectReference: {fileID: 0}
     - target: {fileID: 8201747930719725223, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: NoGhosts
       value: 1
