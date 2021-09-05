@@ -1074,6 +1074,7 @@ MonoBehaviour:
   ExtraGravityHeight: 5
   ExtraGravityTime: 1
   ExtraGravityMultiplier: -100000
+  RespawnAngleOffset: {x: 0, y: -90, z: 0}
   Engines:
   - {fileID: 3160943961957422396}
   - {fileID: 3160943962443678260}
@@ -1090,6 +1091,7 @@ MonoBehaviour:
   HornSoundEmitter: {fileID: 5790638443108245220}
   DriftTurbo: 0
   Boosting: 0
+  CreditsLockout: 0
   VisualEngineSpeedMultiplier: 0.001
   VisualEngineAngleMultiplier: 30
   VisualEngineDriftMultiplier: 0.02

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class HoverVehicle : MonoBehaviour
 {
-    public const bool DEBUG = true;
+    public const bool DEBUG = false;
 
     #region Variables - Inspector
     [Header( "Variables" )]
