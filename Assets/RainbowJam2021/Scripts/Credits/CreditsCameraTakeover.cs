@@ -55,7 +55,7 @@ public class CreditsCameraTakeover : MonoBehaviour
                 camRot = Quaternion.RotateTowards(camRot, CameraToSwitchTo.transform.rotation, 3);
                 PlayerCameraToSteal.transform.rotation = camRot;
 
-                if((CameraToSwitchTo.transform.position - camPos).magnitude < 0.1f)
+                if((CameraToSwitchTo.transform.position - camPos).magnitude < 5)
                 {
                     PlayerCameraToSteal.gameObject.SetActive(false);
                     CameraToSwitchTo.gameObject.SetActive(true);
