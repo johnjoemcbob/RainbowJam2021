@@ -786,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[0].Actor
@@ -2284,11 +2284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[0].Actor
-      value: 
+      value: Silver
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].Actor
@@ -2300,7 +2300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[0].Subtitle
-      value: 
+      value: "You made it. The world\u2019s waiting for you."
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].Subtitle
@@ -2312,7 +2312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[0].VoiceLine
-      value: 
+      value: event:/VO/Silver/silver dialogue_24
       objectReference: {fileID: 0}
     - target: {fileID: 4723953893737818689, guid: 5a7e11ed87858084abb33c0f66ca62d8, type: 3}
       propertyPath: DialogueLines.Array.data[1].VoiceLine
