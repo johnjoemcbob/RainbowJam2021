@@ -71,7 +71,7 @@ public class CheckpointActivator : MonoBehaviour
         FindObjectOfType<HoverVehicle>().ToggleRespawning( true );
     }
 
-    private void Reset()
+    public void Reset()
     {
         Respawning = false;
         UIManager.SetFailureScreenActive(false);
