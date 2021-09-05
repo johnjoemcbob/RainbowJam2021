@@ -252,6 +252,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: IntroCameras
       objectReference: {fileID: 0}
+    - target: {fileID: 6516461930504550120, guid: e32b14e8f8c46c4438471c424e7aad22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -121.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516461930504550120, guid: e32b14e8f8c46c4438471c424e7aad22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -493.652
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516461930504550120, guid: e32b14e8f8c46c4438471c424e7aad22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.66799927
+      objectReference: {fileID: 0}
     - target: {fileID: 7932866242487793538, guid: e32b14e8f8c46c4438471c424e7aad22, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -568,6 +580,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: IntroTexts
       objectReference: {fileID: 0}
+    - target: {fileID: 5534492060743449951, guid: cfc08df91c597b84693a36e77b561a28, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 330.737
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534492060743449951, guid: cfc08df91c597b84693a36e77b561a28, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 32.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534492060743449951, guid: cfc08df91c597b84693a36e77b561a28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14202
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534492060743449951, guid: cfc08df91c597b84693a36e77b561a28, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3326.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534492060743449951, guid: cfc08df91c597b84693a36e77b561a28, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4619.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc08df91c597b84693a36e77b561a28, type: 3}
 --- !u!4 &2921732861597637419 stripped
@@ -633,6 +665,10 @@ PrefabInstance:
     - target: {fileID: 3482034041767791690, guid: 2dddaba0bee721448bff51de969bf88e, type: 3}
       propertyPath: Event
       value: event:/SFX/Ship/Ghosts/EngineThrum_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482034041767791690, guid: 2dddaba0bee721448bff51de969bf88e, type: 3}
+      propertyPath: Params.Array.data[0].Value
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6403102915348676160, guid: 2dddaba0bee721448bff51de969bf88e, type: 3}
       propertyPath: m_Name

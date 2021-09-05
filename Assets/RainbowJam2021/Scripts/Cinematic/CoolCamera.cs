@@ -11,8 +11,12 @@ public class CoolCamera : MonoBehaviour
     public float MinFOV = 25;
     public float MaxFOV = 75;
 
+    public float MaxCamTimeSeconds = 10f;
+    private float CurrentCamTimeSeconds;
+
     private Transform ObjectOfInterest;
     private Camera PreviousCamera;
+    
 
     public void EnterCoolMode(Transform objectOfInterest, Camera originalCamera)
     {
@@ -20,6 +24,8 @@ public class CoolCamera : MonoBehaviour
         OriginalCamera = originalCamera;
         OriginalCamera.enabled = false;
         CameraToSwitchTo.enabled = true;
+
+        CurrentCamTimeSeconds = MaxCamTimeSeconds;
     }
 
     public void ExitCoolMode()
@@ -33,6 +39,16 @@ public class CoolCamera : MonoBehaviour
     {
         if(ObjectOfInterest != null)
         {
+            if(CurrentCamTimeSeconds > 0)
+            {
+                CurrentCamTimeSeconds -= Time.deltaTime;
+            }
+            else
+            {
+                ExitCoolMode();
+            }
+
+
             Vector3 objectLookVector = ObjectOfInterest.position - gameObject.transform.position;
             
             CameraPivot.rotation = Quaternion.LookRotation(objectLookVector.normalized, Vector3.up);
