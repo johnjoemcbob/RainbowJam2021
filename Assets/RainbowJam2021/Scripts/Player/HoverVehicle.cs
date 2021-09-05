@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -108,12 +107,6 @@ public class HoverVehicle : MonoBehaviour
 	{
         if ( DEBUG )
         {
-            // Debug reset
-            if ( Input.GetKeyDown( KeyCode.R ) )
-            {
-                Respawn();
-            }
-
             // Debug visualise engines
             if ( Input.GetKeyDown( KeyCode.Alpha1 ) )
             {
@@ -161,9 +154,14 @@ public class HoverVehicle : MonoBehaviour
         InputTryDrift = Input.GetButton( "Drift" );
         InputTryBoost = Input.GetButton( "Boost" );
 
-        if(Input.GetButtonDown("Horn"))
+        if (Input.GetButtonDown("Horn"))
         {
             HornSoundEmitter.Play();
+        }
+
+        if (Input.GetButtonDown("Reset"))
+        {
+            LastCheckpoint.Reset();
         }
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("HornPressed",Input.GetButton("Horn") ? 1 : 0);
