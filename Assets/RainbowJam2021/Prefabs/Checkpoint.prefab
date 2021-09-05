@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlagLerpSpeed: 5
-  FlagTarget: {x: 0, y: 9, z: 0}
+  FlagTarget: {x: 0, y: -20, z: 0}
   LastCheckpoint: 0
   NoGhosts: 0
   Flag: {fileID: 5938896561670433732}
