@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 4412389055462296523}
   - component: {fileID: 10243628768783388}
   - component: {fileID: 7286499483464521604}
+  - component: {fileID: 8138207610472497952}
   m_Layer: 0
   m_Name: Stem
   m_TagString: Untagged
@@ -297,6 +298,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8138207610472497952
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843804522320573501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1883317055400845340, guid: b572581c1cd70244d845e37110e17e2a, type: 3}
 --- !u!1 &4745614209176269084
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +324,7 @@ GameObject:
   - component: {fileID: 3123879109394575987}
   - component: {fileID: 7357678638977008856}
   - component: {fileID: 8956083822691915428}
+  - component: {fileID: 4813219103397208230}
   m_Layer: 0
   m_Name: Blob
   m_TagString: Untagged
@@ -393,6 +409,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PunchScale: {x: 1, y: 1, z: 1}
   SphereBlob: {fileID: 3811924678926487675}
+--- !u!135 &4813219103397208230
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745614209176269084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.82137334
+  m_Center: {x: 0.00000008940697, y: -0.033551335, z: 0.00000008940697}
 --- !u!1 &5167343146257973710
 GameObject:
   m_ObjectHideFlags: 0
