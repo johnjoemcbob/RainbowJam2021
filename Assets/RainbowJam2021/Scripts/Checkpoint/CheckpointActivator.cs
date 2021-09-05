@@ -21,7 +21,7 @@ public class CheckpointActivator : MonoBehaviour
 
     private int RemainingGhosts = -1;
     private bool Activated = false;
-    private bool Respawning = false;
+    static private bool Respawning = false;
     private UIManager UIManager;
 	#endregion
 
@@ -51,7 +51,7 @@ public class CheckpointActivator : MonoBehaviour
 
 	public void OnTriggerEnter( Collider other )
     {
-        if ( other.CompareTag( "Player" ) )
+        if ( other.CompareTag( "Player" ) && !Respawning )
         {
             Activate();
 
