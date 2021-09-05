@@ -43,7 +43,7 @@ public class CheckpointActivator : MonoBehaviour
             Flag.localPosition = Vector3.Lerp( Flag.localPosition, FlagTarget, Time.deltaTime * FlagLerpSpeed );
 		}
 
-        if ( Respawning && Input.GetButton( "Boost" ) )
+        if ( Respawning && Input.GetButtonDown( "Boost" ) )
         {
             Reset();
         }
