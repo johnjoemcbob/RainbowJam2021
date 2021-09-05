@@ -94,6 +94,7 @@
 			<destination>{9a1dcaa8-927d-4f4c-a636-857a404ead08}</destination>
 			<destination>{92603a5b-e5dc-4132-8219-458b4921c05c}</destination>
 			<destination>{fc7047a6-8444-4641-999d-432b58519abc}</destination>
+			<destination>{0996051b-bc9d-4642-9459-92e72daa94f2}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{61399c80-4039-4052-88fc-457f0fd8afc4}</destination>
@@ -127,6 +128,7 @@
 			<destination>{bb43da81-e148-45f1-865b-370b5095f2f1}</destination>
 			<destination>{9a1dcaa8-927d-4f4c-a636-857a404ead08}</destination>
 			<destination>{63c06f55-1eb1-4965-abeb-56a40a713f09}</destination>
+			<destination>{0996051b-bc9d-4642-9459-92e72daa94f2}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{1ad75cdf-5998-4c3b-b303-05f1c0416c87}</destination>
@@ -306,7 +308,7 @@
 			<value>338.82352941176475</value>
 		</property>
 		<property name="length">
-			<value>45.176470588235233</value>
+			<value>67.764716553287982</value>
 		</property>
 		<property name="volume">
 			<value>-2</value>
@@ -326,6 +328,23 @@
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{61debfff-6519-414e-a3e6-e7b48207d85e}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{0996051b-bc9d-4642-9459-92e72daa94f2}">
+		<property name="start">
+			<value>406.58824596505275</value>
+		</property>
+		<property name="length">
+			<value>22.58825263438716</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>45.176463918900822</value>
+		</property>
+		<property name="volume">
+			<value>-2</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{cd735d1a-86c7-4250-8f24-8ac90c6cd2f1}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{61399c80-4039-4052-88fc-457f0fd8afc4}">
@@ -403,7 +422,7 @@
 			<value>338.82352941176475</value>
 		</property>
 		<property name="length">
-			<value>45.176470588235233</value>
+			<value>90.352947845805005</value>
 		</property>
 		<property name="volume">
 			<value>-2</value>
@@ -600,7 +619,7 @@
 			<value>361.41176470588238</value>
 		</property>
 		<property name="length">
-			<value>22.588235294117595</value>
+			<value>67.764712551687381</value>
 		</property>
 		<property name="name">
 			<value>shimmer loop</value>
