@@ -76,6 +76,9 @@ public class HoverVehicle : MonoBehaviour
     private Vector3[] VisualEngineInitialPos;
     private float JustRespawned = 0;
     private bool Respawning = false;
+
+    [HideInInspector]
+    public bool CreditsLockout = false;
     #endregion
 
     #region MonoBehaviour
@@ -170,7 +173,7 @@ public class HoverVehicle : MonoBehaviour
 
 	void FixedUpdate()
     {
-        if ( !Respawning && JustRespawned <= 0 )
+        if ( !Respawning && JustRespawned <= 0 && !CreditsLockout )
         {
             UpdateVehiclePhysics();
 
