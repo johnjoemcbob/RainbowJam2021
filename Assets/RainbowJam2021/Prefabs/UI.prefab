@@ -2173,6 +2173,7 @@ GameObject:
   - component: {fileID: 8671620011313129907}
   - component: {fileID: 8671620011313129906}
   - component: {fileID: 8671620011313129905}
+  - component: {fileID: 382022280069096936}
   m_Layer: 5
   m_Name: Screenspace Canvas
   m_TagString: Untagged
@@ -2264,6 +2265,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &382022280069096936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671620011313129911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1903e854b9911e8429f4388192291f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buttons: {fileID: 1399953121860417680}
 --- !u!1 &8671620012158051983
 GameObject:
   m_ObjectHideFlags: 0
