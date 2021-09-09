@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6024537813360767130}
+  - component: {fileID: 3207207439846058843}
   m_Layer: 6
   m_Name: CityBlock_1
   m_TagString: Untagged
@@ -37,6 +38,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3207207439846058843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024537813360767131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a386eb9e6db8b9f44846617d26070ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WindowSize: 128
+  BusPath: bus:/Music
+  SpectrumData: []
 --- !u!1001 &176364937931664418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92,6 +108,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MaxScale
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MinScale
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: PinnedPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: SpectrumDataRef
+      value: 
+      objectReference: {fileID: 3207207439846058843}
     - target: {fileID: 8934984734096576403, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
       propertyPath: m_Name
       value: CityBlock (4)
@@ -228,6 +260,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MaxScale
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: PinnedPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: SpectrumDataRef
+      value: 
+      objectReference: {fileID: 3207207439846058843}
     - target: {fileID: 8934984734096576403, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
       propertyPath: m_Name
       value: CityBlock
@@ -294,6 +338,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MaxScale
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MinScale
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: PinnedPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: SpectrumDataRef
+      value: 
+      objectReference: {fileID: 3207207439846058843}
     - target: {fileID: 8934984734096576403, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
       propertyPath: m_Name
       value: CityBlock (2)
@@ -356,6 +416,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MaxScale
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: PinnedPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: SpectrumDataRef
+      value: 
+      objectReference: {fileID: 3207207439846058843}
     - target: {fileID: 8934984734096576403, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
       propertyPath: m_Name
       value: CityBlock (5)
@@ -422,6 +494,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MaxScale
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MinScale
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: PinnedPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: SpectrumDataRef
+      value: 
+      objectReference: {fileID: 3207207439846058843}
     - target: {fileID: 8934984734096576403, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
       propertyPath: m_Name
       value: CityBlock (1)
@@ -488,6 +576,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MaxScale
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: MinScale
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: PinnedPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934984734096576401, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
+      propertyPath: SpectrumDataRef
+      value: 
+      objectReference: {fileID: 3207207439846058843}
     - target: {fileID: 8934984734096576403, guid: a0053277cb49a9843abb0a9bd73c623d, type: 3}
       propertyPath: m_Name
       value: CityBlock (3)
