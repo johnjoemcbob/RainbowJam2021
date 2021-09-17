@@ -2124,14 +2124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'R to reset
-
-    Space to turbo
-
-    Shift to drift!!!
-
-    Build turbo
-    by drifting!'
+  m_Text: 'Fitness: 0'
 --- !u!114 &8671620011025599246
 MonoBehaviour:
   m_ObjectHideFlags: 0

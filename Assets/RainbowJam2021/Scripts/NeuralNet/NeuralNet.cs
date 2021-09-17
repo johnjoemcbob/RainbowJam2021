@@ -108,9 +108,31 @@ namespace NeuralNet
                 }
             }
         }
+
+        public Layer Mutate(float mutationRate)
+        {
+            Layer newLayer = new Layer();
+            newLayer.NumNeurons = NumNeurons;
+
+            (byte[], int, int) genes = CoefficientsToGenes();
+
+            // Mutate genes
+            for(int i = 0; i < genes.Item1.Length; i++)
+            {
+                if(Random.Range(0.0f, 1.0f) < mutationRate)
+                {
+                    genes.Item1[i] = (byte)Random.Range(0,255);
+                }
+            }
+
+            newLayer.CoefficientsFromGenes(genes.Item1, genes.Item2, genes.Item3);
+
+            return newLayer;
+        }
     }
 
     
+
 
 
     public class NeuralNetwork
@@ -141,5 +163,25 @@ namespace NeuralNet
             
             return outputLayer.GetOutputs();
         }
+
+        public NeuralNetwork CreateMutant(float mutationRate)
+        {
+            NeuralNetwork mutant = new NeuralNetwork();
+
+            mutant.Layers.Add(Layers[0]);
+            for(int i = 1; i < Layers.Count; i++)
+            {
+                mutant.Layers.Add(Layers[i].Mutate(mutationRate));
+                mutant.Layers[i].PrevLayer = mutant.Layers[i-1];
+            }
+
+            return mutant;
+        }
+    }
+
+    public struct RunResult
+    {
+        public NeuralNetwork Brain;
+        public float Fitness;
     }
 }

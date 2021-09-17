@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class HoverVehicle : MonoBehaviour
 {
@@ -82,11 +83,34 @@ public class HoverVehicle : MonoBehaviour
 
     NeuralNet.NeuralNetwork Brain;
     float[] LastOutput;
+    RaycastHit frontEyeHit;
+    RaycastHit frontLeftEyeHit;
+    RaycastHit frontRightEyeHit;
+
+    Vector3 FitnessTargetPoint = new Vector3(-16896, -5483, -19);
+    float CurrentFitness;
+    float BestFitness = 0;
+
+    int CurrentGeneration = 0;
+    int CurrentSpecies = 0;
+    int MaxSpeciesPerGen = 20;
+    float TimeUntilNextTry = 30.0f;
+    List<NeuralNet.NeuralNetwork> SpeciesBrains;
+    List<NeuralNet.RunResult> Results;
+
+
+    public UnityEngine.UI.Text FitnessText;
 
     #region MonoBehaviour
     void Start()
     {
-        Brain = NeuralNet.NeuralNetwork.SimpleNetworkRandomWeight(8,6,6,4);
+        SpeciesBrains = new List<NeuralNet.NeuralNetwork>();
+        Results = new List<NeuralNet.RunResult>();
+        for(int i = 0; i < MaxSpeciesPerGen; i++)
+        {
+            SpeciesBrains.Add(NeuralNet.NeuralNetwork.SimpleNetworkRandomWeight(8,6,6,4));
+        }
+        Brain = SpeciesBrains[CurrentSpecies];
         LastOutput = Brain.SolveForInputs(new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
 
 
@@ -113,16 +137,16 @@ public class HoverVehicle : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + transform.forward, transform.position + transform.forward + (transform.forward * 3000.0f));
-        Gizmos.DrawLine(transform.position + transform.forward, transform.position + transform.forward + ((transform.forward - transform.right) * 3000.0f));
-        Gizmos.DrawLine(transform.position + transform.forward, transform.position + transform.forward + ((transform.forward + transform.right) * 3000.0f));
+        Gizmos.DrawLine(transform.position + transform.forward, frontEyeHit.point);
+        Gizmos.DrawLine(transform.position + transform.forward, frontLeftEyeHit.point);
+        Gizmos.DrawLine(transform.position + transform.forward, frontRightEyeHit.point);
     }
 
 	private void Update()
 	{
-        bool frontEye = Physics.Raycast( transform.position + transform.forward, transform.forward, out RaycastHit frontEyeHit, 3000f );
-        bool frontLeftEye = Physics.Raycast( transform.position + transform.forward, transform.forward - transform.right, out RaycastHit frontLeftEyeHit, 3000f );
-        bool frontRightEye = Physics.Raycast( transform.position + transform.forward, transform.forward + transform.right, out RaycastHit frontRightEyeHit, 3000f );
+        bool frontEye = Physics.Raycast( transform.position + transform.forward, transform.forward, out frontEyeHit, 3000f );
+        bool frontLeftEye = Physics.Raycast( transform.position + transform.forward, transform.forward - transform.right, out frontLeftEyeHit, 3000f );
+        bool frontRightEye = Physics.Raycast( transform.position + transform.forward, transform.forward + transform.right, out frontRightEyeHit, 3000f );
         
         LastOutput = Brain.SolveForInputs(new float[]{ frontEye ? frontEyeHit.distance : 99999f,
                                                        frontLeftEye ? frontLeftEyeHit.distance : 99999f, 
@@ -130,6 +154,57 @@ public class HoverVehicle : MonoBehaviour
                                                        0.0f, 0.0f, 0.0f, 0.0f, 
                                                        GetSpeed()});
 
+        CurrentFitness = 100.0f / (FitnessTargetPoint - this.transform.position).magnitude;
+        FitnessText.text = $"Fitness: {CurrentFitness}, Best: {BestFitness}\nGen: {CurrentGeneration} - {CurrentSpecies}/{MaxSpeciesPerGen}\n{TimeUntilNextTry}";
+
+        if(CurrentFitness > BestFitness)
+        {
+            BestFitness = CurrentFitness;
+        }
+
+        TimeUntilNextTry -= Time.deltaTime;
+        if(TimeUntilNextTry <= 0.0f)
+        {
+            TimeUntilNextTry = 30.0f;
+            CurrentSpecies++;
+
+            // Add result
+            Results.Add(new NeuralNet.RunResult{
+                Brain = Brain,
+                Fitness = CurrentFitness
+            });
+
+            if(CurrentSpecies > MaxSpeciesPerGen)
+            {
+                CurrentSpecies = 0;
+                CurrentGeneration++;
+
+                // Sort results and take top 5
+                Results = Results.OrderByDescending((thing)=>thing.Fitness).ToList();
+                Results = Results.Take(5).ToList();
+                
+                // Copy the top 5 brains to the brains list
+                SpeciesBrains.Clear();
+                SpeciesBrains.AddRange(Results.Select((res)=>res.Brain).ToArray());
+
+                // From the top 5, create 4 mutated clones of each 
+                for(int i = 0; i < 5; i++)
+                {
+                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.1f));
+                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.12f));
+                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.14f));
+                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.16f));
+                }
+
+                // Clear results
+                Results.Clear();
+            }
+            
+            Respawn();
+            // Pick next brain
+            Brain = SpeciesBrains[CurrentSpecies];
+            
+        }
 
         if ( DEBUG )
         {
@@ -190,7 +265,8 @@ public class HoverVehicle : MonoBehaviour
 
         if (Input.GetButtonDown("Reset"))
         {
-            LastCheckpoint.Reset();
+            //LastCheckpoint.Reset();
+            Respawn();
         }
 
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("HornPressed",Input.GetButton("Horn") ? 1 : 0);
@@ -315,6 +391,7 @@ public class HoverVehicle : MonoBehaviour
 	{
         transform.localPosition = Vector3.zero;
         transform.localEulerAngles = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

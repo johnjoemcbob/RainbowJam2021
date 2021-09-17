@@ -1092,6 +1092,7 @@ MonoBehaviour:
   DriftTurbo: 0
   Boosting: 0
   CreditsLockout: 0
+  FitnessText: {fileID: 0}
   VisualEngineSpeedMultiplier: 0.001
   VisualEngineAngleMultiplier: 30
   VisualEngineDriftMultiplier: 0.02
