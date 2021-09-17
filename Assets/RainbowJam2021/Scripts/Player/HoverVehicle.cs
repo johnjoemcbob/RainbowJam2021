@@ -80,9 +80,16 @@ public class HoverVehicle : MonoBehaviour
     public bool CreditsLockout = false;
     #endregion
 
+    NeuralNet.NeuralNetwork Brain;
+    float[] LastOutput;
+
     #region MonoBehaviour
     void Start()
     {
+        Brain = NeuralNet.NeuralNetwork.SimpleNetworkRandomWeight(8,6,6,4);
+        LastOutput = Brain.SolveForInputs(new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
+
+
         rb = GetComponentInChildren<Rigidbody>();
         rb.centerOfMass = CenterMass.transform.localPosition;
 
@@ -103,8 +110,27 @@ public class HoverVehicle : MonoBehaviour
         }
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + transform.forward, transform.position + transform.forward + (transform.forward * 3000.0f));
+        Gizmos.DrawLine(transform.position + transform.forward, transform.position + transform.forward + ((transform.forward - transform.right) * 3000.0f));
+        Gizmos.DrawLine(transform.position + transform.forward, transform.position + transform.forward + ((transform.forward + transform.right) * 3000.0f));
+    }
+
 	private void Update()
 	{
+        bool frontEye = Physics.Raycast( transform.position + transform.forward, transform.forward, out RaycastHit frontEyeHit, 3000f );
+        bool frontLeftEye = Physics.Raycast( transform.position + transform.forward, transform.forward - transform.right, out RaycastHit frontLeftEyeHit, 3000f );
+        bool frontRightEye = Physics.Raycast( transform.position + transform.forward, transform.forward + transform.right, out RaycastHit frontRightEyeHit, 3000f );
+        
+        LastOutput = Brain.SolveForInputs(new float[]{ frontEye ? frontEyeHit.distance : 99999f,
+                                                       frontLeftEye ? frontLeftEyeHit.distance : 99999f, 
+                                                       frontRightEye ? frontRightEyeHit.distance : 99999f, 
+                                                       0.0f, 0.0f, 0.0f, 0.0f, 
+                                                       GetSpeed()});
+
+
         if ( DEBUG )
         {
             // Debug visualise engines
@@ -154,6 +180,9 @@ public class HoverVehicle : MonoBehaviour
         InputTryDrift = Input.GetButton( "Drift" );
         InputTryBoost = Input.GetButton( "Boost" );
 
+        InputTryBoost |= LastOutput[2] >= 0.5f;
+        InputTryDrift |= LastOutput[3] >= 0.5f;
+
         if (Input.GetButtonDown("Horn"))
         {
             HornSoundEmitter.Play();
@@ -167,6 +196,8 @@ public class HoverVehicle : MonoBehaviour
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("HornPressed",Input.GetButton("Horn") ? 1 : 0);
 
         UpdateEngineVisuals();
+
+        
     }
 
 	void FixedUpdate()
@@ -242,6 +273,16 @@ public class HoverVehicle : MonoBehaviour
     }
 	#endregion
 
+    float GetVerticalInput()
+    {
+        return Input.GetAxis( "Vertical" ) + ((LastOutput[1] - 0.5f) * 2.0f);
+    }
+
+    float GetHorizontalInput()
+    {
+        return Input.GetAxis( "Horizontal" ) + ((LastOutput[0] - 0.5f) * 2.0f);
+    }
+
 	#region HoverVehicle
     void UpdateVehiclePhysics()
 	{
@@ -251,8 +292,8 @@ public class HoverVehicle : MonoBehaviour
         {
             forward.y = 0;
         }
-        rb.AddForceAtPosition( Time.deltaTime * forward * Input.GetAxis( "Vertical" ) * ThrustForce, Propulsion.transform.position );
-        rb.AddTorque( Time.deltaTime * transform.TransformDirection( Vector3.up ) * Input.GetAxis( "Horizontal" ) * TurnForce );
+        rb.AddForceAtPosition( Time.deltaTime * forward * GetVerticalInput() * ThrustForce, Propulsion.transform.position );
+        rb.AddTorque( Time.deltaTime * transform.TransformDirection( Vector3.up ) * GetHorizontalInput() * TurnForce );
         foreach ( GameObject engine in Engines )
         {
             RaycastHit hit;
@@ -348,7 +389,7 @@ public class HoverVehicle : MonoBehaviour
         {
             right.y = 0;
         }
-        if ( Input.GetAxis( "Horizontal" ) < 0 )
+        if ( GetHorizontalInput() < 0 )
         {
             right *= -1;
         }
@@ -356,10 +397,10 @@ public class HoverVehicle : MonoBehaviour
         rb.AddForceAtPosition( Time.deltaTime * forward * vel.magnitude * DriftArcForwardForce, Propulsion.transform.position );
 
         // Turn faster when drifting
-        rb.AddTorque( Time.deltaTime * transform.TransformDirection( Vector3.up ) * Input.GetAxis( "Horizontal" ) * TurnForce * DriftTurnMultiplier );
+        rb.AddTorque( Time.deltaTime * transform.TransformDirection( Vector3.up ) * GetHorizontalInput() * TurnForce * DriftTurnMultiplier );
 
         // Angle the vehicle to drift by speed
-        TargetDriftAngle = new Vector3( 0, 0, 1 ) * DriftVisualTiltAngle * Input.GetAxis( "Horizontal" ) * rb.velocity.magnitude;
+        TargetDriftAngle = new Vector3( 0, 0, 1 ) * DriftVisualTiltAngle * GetHorizontalInput() * rb.velocity.magnitude;
         PunchMesh.PunchScale = DriftPunch;
         PunchMesh.Punch();
     }
@@ -577,7 +618,7 @@ public class HoverVehicle : MonoBehaviour
 		foreach ( var engine in VisualEngines )
 		{
             // If turning then face direction change
-            engine.transform.localRotation = Quaternion.Lerp( engine.transform.localRotation, Quaternion.Euler( new Vector3( 0, 1, 0 ) * Input.GetAxis( "Horizontal" ) * VisualEngineAngleMultiplier ), Time.deltaTime * VisualEngineLerpSpeed );
+            engine.transform.localRotation = Quaternion.Lerp( engine.transform.localRotation, Quaternion.Euler( new Vector3( 0, 1, 0 ) * GetHorizontalInput() * VisualEngineAngleMultiplier ), Time.deltaTime * VisualEngineLerpSpeed );
 
             // Move forward/back with speed
             Vector3 target = VisualEngineInitialPos[ind] + ( Vector3.forward * GetSpeed() * VisualEngineSpeedMultiplier );
