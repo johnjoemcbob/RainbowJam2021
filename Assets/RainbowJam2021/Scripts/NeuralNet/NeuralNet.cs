@@ -72,7 +72,7 @@ namespace NeuralNet
             }
             else
             {
-                output = Inputs[neuronIndex];
+                output = Inputs[neuronIndex].Sigmoid();
             }
             
             return output;

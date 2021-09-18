@@ -94,7 +94,8 @@ public class HoverVehicle : MonoBehaviour
     int CurrentGeneration = 0;
     int CurrentSpecies = 0;
     int MaxSpeciesPerGen = 20;
-    float TimeUntilNextTry = 30.0f;
+    float TimeUntilNextTry = 15.0f;
+    public float MaxTimeUntilNextTry = 15.0f;
     List<NeuralNet.NeuralNetwork> SpeciesBrains;
     List<NeuralNet.RunResult> Results;
 
@@ -104,11 +105,12 @@ public class HoverVehicle : MonoBehaviour
     #region MonoBehaviour
     void Start()
     {
+        Time.timeScale = 10.0f;
         SpeciesBrains = new List<NeuralNet.NeuralNetwork>();
         Results = new List<NeuralNet.RunResult>();
         for(int i = 0; i < MaxSpeciesPerGen; i++)
         {
-            SpeciesBrains.Add(NeuralNet.NeuralNetwork.SimpleNetworkRandomWeight(8,6,6,4));
+            SpeciesBrains.Add(NeuralNet.NeuralNetwork.SimpleNetworkRandomWeight(8,10,6,4));
         }
         Brain = SpeciesBrains[CurrentSpecies];
         LastOutput = Brain.SolveForInputs(new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
@@ -147,14 +149,18 @@ public class HoverVehicle : MonoBehaviour
         bool frontEye = Physics.Raycast( transform.position + transform.forward, transform.forward, out frontEyeHit, 3000f );
         bool frontLeftEye = Physics.Raycast( transform.position + transform.forward, transform.forward - transform.right, out frontLeftEyeHit, 3000f );
         bool frontRightEye = Physics.Raycast( transform.position + transform.forward, transform.forward + transform.right, out frontRightEyeHit, 3000f );
+
+        CurrentFitness = 1000.0f / (FitnessTargetPoint - this.transform.position).magnitude;
         
         LastOutput = Brain.SolveForInputs(new float[]{ frontEye ? frontEyeHit.distance : 99999f,
                                                        frontLeftEye ? frontLeftEyeHit.distance : 99999f, 
                                                        frontRightEye ? frontRightEyeHit.distance : 99999f, 
-                                                       0.0f, 0.0f, 0.0f, 0.0f, 
-                                                       GetSpeed()});
+                                                       CurrentFitness, 
+                                                       transform.localEulerAngles.y,
+                                                       DriftTurbo, GetVelocity().x, 
+                                                       GetVelocity().z});
 
-        CurrentFitness = 100.0f / (FitnessTargetPoint - this.transform.position).magnitude;
+        
         FitnessText.text = $"Fitness: {CurrentFitness}, Best: {BestFitness}\nGen: {CurrentGeneration} - {CurrentSpecies}/{MaxSpeciesPerGen}\n{TimeUntilNextTry}";
 
         if(CurrentFitness > BestFitness)
@@ -165,7 +171,7 @@ public class HoverVehicle : MonoBehaviour
         TimeUntilNextTry -= Time.deltaTime;
         if(TimeUntilNextTry <= 0.0f)
         {
-            TimeUntilNextTry = 30.0f;
+            TimeUntilNextTry = MaxTimeUntilNextTry;
             CurrentSpecies++;
 
             // Add result
@@ -174,7 +180,7 @@ public class HoverVehicle : MonoBehaviour
                 Fitness = CurrentFitness
             });
 
-            if(CurrentSpecies > MaxSpeciesPerGen)
+            if(CurrentSpecies >= MaxSpeciesPerGen)
             {
                 CurrentSpecies = 0;
                 CurrentGeneration++;
@@ -190,10 +196,9 @@ public class HoverVehicle : MonoBehaviour
                 // From the top 5, create 4 mutated clones of each 
                 for(int i = 0; i < 5; i++)
                 {
-                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.1f));
-                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.12f));
-                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.14f));
-                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.16f));
+                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.05f));
+                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.10f));
+                    SpeciesBrains.Add(SpeciesBrains[i].CreateMutant(0.25f));
                 }
 
                 // Clear results
